@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
 
             pongOffset = rotation * pongOffset;
             cornerOffset = rotation * cornerOffset;
+
+            if (i == 0) pong.transform.GetComponent<Controller>().enabled = true;
         }
     }
 	

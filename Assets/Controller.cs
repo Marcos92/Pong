@@ -20,9 +20,9 @@ public class Controller : MonoBehaviour
         if (corner != direction)
         {
             float velocity = direction * Time.deltaTime * speed;
-            rigidBody.AddForce(transform.right * direction);
+            //rigidBody.AddForce(transform.right * direction);
             
-            //transform.Translate(transform.right * velocity, transform.parent);
+            transform.Translate(transform.right * velocity, transform.parent);
         }
     }
 
