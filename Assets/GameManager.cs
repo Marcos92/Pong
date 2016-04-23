@@ -3,34 +3,48 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject pong;
-    public int pongNumber;
+    public GameObject pongPrefab;
+    public GameObject cornerPrefab;
+    public bool pongs8;
+    int pongNumber = 4;
     public float ray;
     public float defaultSpeed;
-    public float limit;
-    public float pongLength;
 
 	// Use this for initialization
 	void Start ()
     {
-        float f = 360 / pongNumber;
-        Quaternion q = Quaternion.Euler(new Vector3(0, f));
-        Vector3 offset = new Vector3(0, 0, -1) * ray;
-        offset.y += 1.5f;
+        Vector3 pongOffset = new Vector3(0, 0, -1) * ray;
+        Vector3 cornerOffset = new Vector3(1, 0, 1) * ray;
 
-        float side = 2 * ray * Mathf.Sin(Mathf.PI / pongNumber) - pongLength - limit;
+        if (pongs8)
+            pongNumber = 8;
+
+        float angle = 360 / pongNumber;
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, angle));
+
+        if (pongs8)//quando são oito pongs é preciso ajustar o offset dos cantos
+        {
+            cornerOffset *= 3f / 4f;
+            Quaternion halfRotation = Quaternion.Euler(new Vector3(0, angle / 2));
+            cornerOffset = halfRotation * cornerOffset;
+        }
+
+        cornerOffset.y = pongOffset.y += 1.5f;
+        
         for (int i = 0; i < pongNumber; i++)
         {
-            GameObject o = (GameObject)Instantiate(pong, transform.position + offset, Quaternion.Euler(new Vector3(0, f * i)));
-            o.transform.parent = transform;
-            offset = q * offset;
-            Controller c = o.GetComponent<Controller>();
-            c.speed = defaultSpeed;
-            c.limit = side / 2;
+            GameObject pong = (GameObject)Instantiate(pongPrefab, transform.position + pongOffset, Quaternion.Euler(new Vector3(0, angle * i)));
+            pong.transform.parent = transform;
+            Controller controller = pong.GetComponent<Controller>();
+            controller.speed = defaultSpeed;
+
+            Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
+
+            pongOffset = rotation * pongOffset;
+            cornerOffset = rotation * cornerOffset;
         }
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
 	

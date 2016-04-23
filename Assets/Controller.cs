@@ -4,19 +4,43 @@ using System.Collections;
 public class Controller : MonoBehaviour
 {
     internal float speed;
-    internal float limit;
-	// Use this for initialization
+    internal int direction;
+    internal int corner = 0;
+    Rigidbody rigidBody;
+
 	void Start ()
     {
-	
+        rigidBody = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
         Vector3 v = Quaternion.Inverse(transform.localRotation) * transform.localPosition;
-        float direction = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
-        if (v.x * Mathf.Sign(direction) < limit)
-            transform.Translate(transform.right * direction, transform.parent);
+        direction = (int)Input.GetAxisRaw("Horizontal");
+        if (corner != direction)
+        {
+            float velocity = direction * Time.deltaTime * speed;
+            rigidBody.AddForce(transform.right * direction);
+            
+            //transform.Translate(transform.right * velocity, transform.parent);
+        }
     }
+
+    //void OnTriggerEnter(Collider collider)
+    //{
+    //    print("enter");
+    //    if (collider.tag == "Untagged")
+    //    {
+    //        corner = direction;
+    //    }
+    //}
+
+    //void OnTriggerExit(Collider collider)
+    //{
+    //    print("leave");
+    //    if (collider.tag == "Untagged")
+    //    {
+    //        corner = 0;
+    //    }
+    //}
 }
