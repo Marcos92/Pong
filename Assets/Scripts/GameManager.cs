@@ -3,18 +3,18 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject pongPrefab;
+    public Pong pongPrefab;
     public GameObject cornerPrefab;
+    public Goal goalPrefab;
     public bool pongs8;
     int pongNumber = 4;
     public float ray;
-    public float defaultSpeed;
 
 	// Use this for initialization
 	void Start ()
     {
         Vector3 pongOffset = new Vector3(0, 0, -1) * ray;
-        Vector3 cornerOffset = new Vector3(1, 0, 1) * ray;
+        Vector3 cornerOffset = new Vector3(1, 0, -1) * ray;
 
         if (pongs8)
             pongNumber = 8;
@@ -33,17 +33,22 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < pongNumber; i++)
         {
-            GameObject pong = (GameObject)Instantiate(pongPrefab, transform.position + pongOffset, Quaternion.Euler(new Vector3(0, angle * i)));
+            Pong pong = Instantiate(pongPrefab, transform.position + pongOffset, Quaternion.Euler(new Vector3(0, angle * i))) as Pong;
             pong.transform.parent = transform;
-            Controller controller = pong.GetComponent<Controller>();
-            controller.speed = defaultSpeed;
 
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
+            pong.bounds = Vector3.Distance(pong.transform.position, transform.position + cornerOffset) - pong.transform.GetComponent<Renderer>().bounds.size.x * 0.5f;
+            //^Ainda não funciona com os 8 jogadores
+
+            //Atribuir baliza ao pong
+            Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 3f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
+            goal.transform.GetComponent<BoxCollider>().size = new Vector3(pong.bounds * 2.5f, 0, 5f);
+            pong.goal = goal;
+
+            if (i == 0) pong.controlable = true; //Mudar conforme o jogador
 
             pongOffset = rotation * pongOffset;
             cornerOffset = rotation * cornerOffset;
-
-            if (i == 0) pong.transform.GetComponent<Controller>().enabled = true;
         }
     }
 	
