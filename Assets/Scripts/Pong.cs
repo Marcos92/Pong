@@ -12,6 +12,8 @@ public class Pong : MonoBehaviour
     public Goal goal;
     //Rigidbody rigidBody;
 
+    public int points;
+
 	void Start ()
     {
         //rigidBody = GetComponent<Rigidbody>();

@@ -6,9 +6,12 @@ public class GameManager : MonoBehaviour
     public Pong pongPrefab;
     public GameObject cornerPrefab;
     public Goal goalPrefab;
+	public Ball ballPrefab;
+    public Score scoreManager;
     public bool pongs8;
     int pongNumber = 4;
     public float ray;
+    public int initialPoints;
 
 	// Use this for initialization
 	void Start ()
@@ -35,25 +38,42 @@ public class GameManager : MonoBehaviour
         {
             Pong pong = Instantiate(pongPrefab, transform.position + pongOffset, Quaternion.Euler(new Vector3(0, angle * i))) as Pong;
             pong.transform.parent = transform;
+            pong.name = "Pong" + i;
+            pong.points = initialPoints;
+            scoreManager.players.Add(pong);
 
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
             pong.bounds = Vector3.Distance(pong.transform.position, transform.position + cornerOffset) - pong.transform.GetComponent<Renderer>().bounds.size.x * 0.5f;
             //^Ainda não funciona com os 8 jogadores
 
             //Atribuir baliza ao pong
-            Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 3f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
+            Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 3.3f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
             goal.transform.GetComponent<BoxCollider>().size = new Vector3(pong.bounds * 2.5f, 0, 5f);
-            pong.goal = goal;
+            goal.owner = pong;
+            goal.gameM = this;
+            goal.scoreManager = scoreManager;
+            //pong.goal = goal;
 
             if (i == 0) pong.controlable = true; //Mudar conforme o jogador
 
             pongOffset = rotation * pongOffset;
             cornerOffset = rotation * cornerOffset;
-        }
+		}
+
+        scoreManager.UpdateScores();
+
+		//Dar spawn da bola
+		//Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Ball;
+
+        SpawnBall();
+    }
+
+    public void SpawnBall()
+    {
+        Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Ball;
     }
 	
 	void Update ()
     {
-	
 	}
 }
