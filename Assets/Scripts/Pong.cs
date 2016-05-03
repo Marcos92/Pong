@@ -17,9 +17,30 @@ public class Pong : MonoBehaviour
 	void Start ()
     {
         //rigidBody = GetComponent<Rigidbody>();
-	}
-	
-	void Update ()
+        Vector3 right = transform.right;
+        Vector3 initialPosition = transform.localPosition;
+        float aux;
+        xMin = initialPosition.x - myBounds * right.x;
+        xMax = initialPosition.x + myBounds * right.x;
+        if (xMin > xMax)
+        {
+            aux = xMin;
+            xMin = xMax;
+            xMax = aux;
+        }
+        zMin = initialPosition.z + myBounds * right.z;
+        zMax = initialPosition.z - myBounds * right.z;
+        if (zMin > zMax)
+        {
+            aux = zMin;
+            zMin = zMax;
+            zMax = aux;
+        }
+        print(bounds);
+    }
+    float xMin, xMax, zMin, zMax;
+    public static float myBounds;
+    void Update ()
     {
         if(controlable) direction = (int)Input.GetAxisRaw("Horizontal");
 
@@ -27,7 +48,8 @@ public class Pong : MonoBehaviour
         transform.Translate(transform.right * velocity, transform.parent);
 
         Vector3 pos = transform.localPosition;
-        pos.x = Mathf.Clamp(transform.localPosition.x, -bounds, bounds);
+        pos.x = Mathf.Clamp(transform.localPosition.x, xMin, xMax);
+        pos.z = Mathf.Clamp(transform.localPosition.z, zMin, zMax);
         transform.localPosition = pos;
     }
 

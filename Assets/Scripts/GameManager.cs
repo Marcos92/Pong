@@ -54,7 +54,11 @@ public class GameManager : MonoBehaviour
             goal.scoreManager = scoreManager;
             //pong.goal = goal;
 
-            if (i == 0) pong.controlable = true; //Mudar conforme o jogador
+            if (i == 0)
+            {
+                pong.controlable = true; //Mudar conforme o jogador
+                Pong.myBounds = pong.bounds;
+            }
 
             pongOffset = rotation * pongOffset;
             cornerOffset = rotation * cornerOffset;
