@@ -6,6 +6,7 @@ public class CountDown : MonoBehaviour {
 
 	public Text CounterText;
 
+
 	public float segundos,minutos;
 
 	// Use this for initialization
@@ -18,6 +19,5 @@ public class CountDown : MonoBehaviour {
 		minutos = (int)(Time.time / 60f);
 		segundos = (int)(Time.time % 60f);
 		CounterText.text = minutos.ToString("00") + ":" + segundos.ToString("00");
-
 	}
 }
