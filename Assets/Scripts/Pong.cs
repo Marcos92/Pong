@@ -16,9 +16,11 @@ public class Pong : MonoBehaviour
 
     //Bots
     public bool bot = false;
-    Transform nearestBall;
+    public Transform nearestBall;
     public float delay;
-    float nextSearchTime;
+    public float nextSearchTime;
+    public float DelayedReaction;
+    
 
     //Strike
     [HideInInspector]
@@ -59,6 +61,8 @@ public class Pong : MonoBehaviour
     }
     float xMin, xMax, zMin, zMax;
     public static float myBounds;
+
+
     void Update ()
     {
         if(controlable) direction = (int)Input.GetAxisRaw("Horizontal");
@@ -71,6 +75,7 @@ public class Pong : MonoBehaviour
             {
                 nextSearchTime = Time.time + delay;
 
+                botMoveToBallPosition(velocity);
                 //Guardar posição da bola mais próxima
             }
             
@@ -117,6 +122,8 @@ public class Pong : MonoBehaviour
         }
     }
 
+   enum BotDirection { DirectionX, DirectionY};
+
     //void OnTriggerEnter(Collider collider)
     //{
     //    print("enter");
@@ -134,4 +141,10 @@ public class Pong : MonoBehaviour
     //        corner = 0;
     //    }
     //}
+
+    void botMoveToBallPosition(float velocity)
+    {
+   
+         transform.position = Vector3.MoveTowards(transform.position, direction*(transform.position + transform.right) , DelayedReaction);
+    }
 }

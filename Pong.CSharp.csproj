@@ -77,10 +77,7 @@
     <Compile Include="Assets\Scripts\Pong.cs" />
     <Compile Include="Assets\Scripts\RT_MeshRotator.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Scripts\TestAI.cs" />
->>>>>>> 50a0b561bbd61db7f3e7decaaa37aaed6b1978b7
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
