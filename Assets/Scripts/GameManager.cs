@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
 
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
             pong.bounds = Vector3.Distance(pong.transform.position, transform.position + cornerOffset) - pong.transform.GetComponent<Renderer>().bounds.size.x * 0.5f;
-            //^Ainda não funciona com os 8 jogadores
 
             //Atribuir baliza ao pong
             Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 3.3f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
@@ -66,8 +65,6 @@ public class GameManager : MonoBehaviour
 
         scoreManager.UpdateScores();
 
-		//Dar spawn da bola
-		//Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Ball;
 
         SpawnBall();
     }

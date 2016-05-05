@@ -29,7 +29,6 @@ public class Pong : MonoBehaviour
     public float strikePower;
 
     //Dash
-    bool dashing = false;
     public float dashDuration = 0.5f;
     public float dashSpeedMultiplier = 1.2f;
 
