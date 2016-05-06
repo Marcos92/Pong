@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour {
     public Pong owner;
     public GameManager gameM;
     public Score scoreManager;
-
+    private bool isActive = true;
 	// Use this for initialization
 	void Start () {
 	
@@ -23,13 +23,25 @@ public class Goal : MonoBehaviour {
         scoreManager.UpdateScores();
     }
 
+    public void CloseGoal()
+    {
+        isActive = false;
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.rotation = transform.rotation;
+        cube.transform.position = transform.position;
+        cube.transform.localScale = GetComponent<BoxCollider>().size;
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Ball>())
+        if (isActive)
         {
-            ScoreGoal();
-            Destroy(other.gameObject);
-            gameM.SpawnBall();
+            if (other.GetComponent<Ball>())
+            {
+                ScoreGoal();
+                Destroy(other.gameObject);
+                gameM.SpawnBall();
+            }
         }
     }
 }

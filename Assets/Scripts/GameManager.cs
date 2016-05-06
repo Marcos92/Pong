@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +16,28 @@ public class GameManager : MonoBehaviour
     public float ray;
     public int initialPoints;
 
+    public float matchDurationMinutes;
+    public float matchDurationSeconds;
+    private float timer;
+    private bool gameEnded = false;
+
+    public HUD hud;
+
+    private List<Pong> activePlayers;
+    private List<Goal> goals;
+    private Ball ball;
+    private bool isPaused = false;
+
 	// Use this for initialization
 	void Start ()
     {
+        
+        timer = matchDurationMinutes * 60.0f + matchDurationSeconds;
+
         Vector3 pongOffset = new Vector3(0, 0, -1) * ray;
         Vector3 cornerOffset = new Vector3(1, 0, -1) * ray;
+        activePlayers = new List<Pong>();
+        goals = new List<Goal>();
 
         if (pongs8)
             pongNumber = 8;
@@ -41,6 +61,7 @@ public class GameManager : MonoBehaviour
             pong.name = "Pong" + i;
             pong.points = initialPoints;
             scoreManager.players.Add(pong);
+            activePlayers.Add(pong);
 
             
 
@@ -53,6 +74,7 @@ public class GameManager : MonoBehaviour
             goal.owner = pong;
             goal.gameM = this;
             goal.scoreManager = scoreManager;
+            goals.Add(goal);
             //pong.goal = goal;
 
             if (i == 0)
@@ -72,16 +94,81 @@ public class GameManager : MonoBehaviour
 
         scoreManager.UpdateScores();
 
-
         SpawnBall();
     }
 
     public void SpawnBall()
     {
-        Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Ball;
+        ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Ball;
     }
 	
+    public void Lost(Pong p)
+    {
+        p.gameObject.SetActive(false);
+        foreach (Goal g in goals)
+        {
+            if (g.owner == p) g.CloseGoal();
+        }
+    }
+
+    public void Won(Pong p)
+    {
+        gameEnded = true;
+        ball.gameObject.SetActive(false);
+        hud.WinnerScreen(p.name);
+
+    }
+
+    public void NewGame()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    void RemovePlayers()
+    {
+        List<Pong> toRemove = new List<Pong>();
+        if (activePlayers.Count == 1) Won(activePlayers[0]);
+        else
+        {
+            foreach (Pong p in activePlayers)
+            {
+                if (p.points <= 0)
+                {
+                    Lost(p);
+                    toRemove.Add(p);
+                }
+            }
+            foreach (Pong p in toRemove)
+            {
+                activePlayers.Remove(p);
+            }
+        }
+    }
+
+    void PauseUnpause()
+    {
+        isPaused = !isPaused;            
+        Time.timeScale = 1 - Convert.ToInt32(isPaused);
+        hud.PauseUnpause(isPaused);
+    }
+
+    void TimeEnded()
+    {
+        Pong bestScore = activePlayers[0];
+        foreach (Pong p in activePlayers)
+        {
+            if (p.points > bestScore.points) bestScore = p;
+        }
+        Won(bestScore);
+    }
+
 	void Update ()
     {
+        if(!gameEnded) timer -= Time.deltaTime;
+        hud.timer = timer;
+        if (timer <= 0) TimeEnded();
+        if (Input.GetKeyDown(KeyCode.P)) PauseUnpause();
+        RemovePlayers();
+        
 	}
 }

@@ -29,7 +29,11 @@ public class Ball : MonoBehaviour {
 			rb.velocity = dir * speed;
 		}
 
+<<<<<<< HEAD
 		else if (col.gameObject.tag == "Player") 
+=======
+		else if (col.gameObject.tag == "Player")
+>>>>>>> origin/master
 		{
 			int pongAngle = (int)col.transform.rotation.eulerAngles.y;
 
