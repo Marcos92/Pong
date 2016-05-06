@@ -17,7 +17,10 @@ public class Score : MonoBehaviour {
         string score = "Scores:\t\t";
         foreach (Pong p in players)
         {
-            score += p.name + ": " + p.points + "\t\t";
+            score += p.name + ": ";
+            if (p.points == 0) score += "Lost";
+            else score += p.points;
+            score += "\t\t";
         }
         scoreText.text = score;
     }
