@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
             pong.points = initialPoints;
             scoreManager.players.Add(pong);
 
+            
+
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
             pong.bounds = Vector3.Distance(pong.transform.position, transform.position + cornerOffset) - pong.transform.GetComponent<Renderer>().bounds.size.x * 0.5f;
 
@@ -59,6 +61,11 @@ public class GameManager : MonoBehaviour
                 Pong.myBounds = pong.bounds;
             }
 
+            else
+            {
+                pong.bot = true;
+            }
+            
             pongOffset = rotation * pongOffset;
             cornerOffset = rotation * cornerOffset;
 		}

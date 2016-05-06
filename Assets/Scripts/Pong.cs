@@ -59,7 +59,7 @@ public class Pong : MonoBehaviour
         nextSearchTime = Time.time;
     }
     float xMin, xMax, zMin, zMax;
-    public static float myBounds;
+    public static float myBounds = 10;
 
 
     void Update ()
@@ -70,14 +70,17 @@ public class Pong : MonoBehaviour
 
         if (bot) 
         {
-            if (Time.time > nextSearchTime)
+            if (Time.time <= nextSearchTime)
             {
-                nextSearchTime = Time.time + delay;
-
-                botMoveToBallPosition(velocity);
+                botMoveToBallPosition();
                 //Guardar posição da bola mais próxima
             }
             
+            else if(Time.time > nextSearchTime + delay)
+            {
+                nextSearchTime = Time.time + delay; 
+            }
+
             //Movimento para a direcção guardada
         }
         else transform.Translate(transform.right * velocity, transform.parent);
@@ -141,9 +144,38 @@ public class Pong : MonoBehaviour
     //    }
     //}
 
-    void botMoveToBallPosition(float velocity)
+    void botMoveToBallPosition()
     {
-   
-         transform.position = Vector3.MoveTowards(transform.position, direction*(transform.position + transform.right) , DelayedReaction);
+        nearestBall= GameObject.Find("Ball(Clone)").transform;
+        Vector3 vectorLeftTest = ((transform.right * -1) * 2) + transform.position;
+        Vector3 vectorRightTest = (transform.right * 2) + transform.position;
+
+        Debug.DrawLine(transform.position, vectorLeftTest, Color.blue);
+        Debug.DrawLine(transform.position, vectorRightTest,Color.blue);
+
+        float DistanceLeft = Vector3.Distance(nearestBall.position, vectorLeftTest);
+        float DistanceRight = Vector3.Distance(nearestBall.position, vectorRightTest);
+        float DistanceForward = Vector3.Distance(nearestBall.position, transform.position);
+
+        if (DistanceLeft < DistanceRight && DistanceLeft < DistanceForward)
+        {
+            direction = -1;
+            
+        }
+
+        else if (DistanceLeft > DistanceRight && DistanceRight < DistanceForward)
+        {
+            direction = 1;
+        }
+
+        else
+        {
+            direction = 0;
+        }
+
+        float velocity = direction * Time.deltaTime * speed;
+
+        transform.Translate(transform.right * velocity, transform.parent);
+        print(velocity+" "+DistanceForward+" "+DistanceLeft+" "+DistanceRight);
     }
 }
