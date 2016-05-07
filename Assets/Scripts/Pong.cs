@@ -8,6 +8,7 @@ public class Pong : MonoBehaviour
     public bool controlable = false;
     [HideInInspector]
     public float bounds;
+    float xMin, xMax, zMin, zMax;
     [HideInInspector]
     public Goal goal;
     //Rigidbody rigidBody;
@@ -38,29 +39,25 @@ public class Pong : MonoBehaviour
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
-        xMin = initialPosition.x - myBounds * right.x;
-        xMax = initialPosition.x + myBounds * right.x;
+        xMin = initialPosition.x - bounds * right.x;
+        xMax = initialPosition.x + bounds * right.x;
         if (xMin > xMax)
         {
             aux = xMin;
             xMin = xMax;
             xMax = aux;
         }
-        zMin = initialPosition.z + myBounds * right.z;
-        zMax = initialPosition.z - myBounds * right.z;
+        zMin = initialPosition.z + bounds * right.z;
+        zMax = initialPosition.z - bounds * right.z;
         if (zMin > zMax)
         {
             aux = zMin;
             zMin = zMax;
             zMax = aux;
         }
-        //print(bounds);
 
         nextSearchTime = Time.time;
     }
-    float xMin, xMax, zMin, zMax;
-    public static float myBounds = 10;
-
 
     void Update ()
     {
@@ -146,36 +143,40 @@ public class Pong : MonoBehaviour
 
     void botMoveToBallPosition()
     {
-        nearestBall= GameObject.Find("Ball(Clone)").transform;
-        Vector3 vectorLeftTest = ((transform.right * -1) * 2) + transform.position;
-        Vector3 vectorRightTest = (transform.right * 2) + transform.position;
-
-        Debug.DrawLine(transform.position, vectorLeftTest, Color.blue);
-        Debug.DrawLine(transform.position, vectorRightTest,Color.blue);
-
-        float DistanceLeft = Vector3.Distance(nearestBall.position, vectorLeftTest);
-        float DistanceRight = Vector3.Distance(nearestBall.position, vectorRightTest);
-        float DistanceForward = Vector3.Distance(nearestBall.position, transform.position);
-
-        if (DistanceLeft < DistanceRight && DistanceLeft < DistanceForward)
+        GameObject go = GameObject.Find("Ball(Clone)");
+        if (go)
         {
-            direction = -1;
-            
+            nearestBall = go.transform;
+            Vector3 vectorLeftTest = ((transform.right * -1) * 2) + transform.position;
+            Vector3 vectorRightTest = (transform.right * 2) + transform.position;
+
+            Debug.DrawLine(transform.position, vectorLeftTest, Color.blue);
+            Debug.DrawLine(transform.position, vectorRightTest, Color.blue);
+
+            float DistanceLeft = Vector3.Distance(nearestBall.position, vectorLeftTest);
+            float DistanceRight = Vector3.Distance(nearestBall.position, vectorRightTest);
+            float DistanceForward = Vector3.Distance(nearestBall.position, transform.position);
+
+            if (DistanceLeft < DistanceRight && DistanceLeft < DistanceForward)
+            {
+                direction = -1;
+
+            }
+
+            else if (DistanceLeft > DistanceRight && DistanceRight < DistanceForward)
+            {
+                direction = 1;
+            }
+
+            else
+            {
+                direction = 0;
+            }
+
+            float velocity = direction * Time.deltaTime * speed;
+
+            transform.Translate(transform.right * velocity, transform.parent);
+            //print(velocity + " " + DistanceForward + " " + DistanceLeft + " " + DistanceRight);
         }
-
-        else if (DistanceLeft > DistanceRight && DistanceRight < DistanceForward)
-        {
-            direction = 1;
-        }
-
-        else
-        {
-            direction = 0;
-        }
-
-        float velocity = direction * Time.deltaTime * speed;
-
-        transform.Translate(transform.right * velocity, transform.parent);
-        print(velocity+" "+DistanceForward+" "+DistanceLeft+" "+DistanceRight);
     }
 }

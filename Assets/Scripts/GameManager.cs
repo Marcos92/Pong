@@ -11,28 +11,33 @@ public class GameManager : MonoBehaviour
     public Goal goalPrefab;
 	public Ball ballPrefab;
     public Score scoreManager;
+    public float ballRespawnTime;
+
     public bool pongs8;
     int pongNumber = 4;
-    public float ray;
+    float bounds;
+    public float ray, boundsDecrement;
+
     public int initialPoints;
 
     public float matchDurationMinutes;
     public float matchDurationSeconds;
-    private float timer;
+    
+    private float gameTimer, ballRespawnTimer;
     private bool gameEnded = false;
 
     public HUD hud;
 
     private List<Pong> activePlayers;
     private List<Goal> goals;
-    private Ball ball;
+    internal List<Ball> balls = new List<Ball>();
     private bool isPaused = false;
 
 	// Use this for initialization
 	void Start ()
-    {
-        
-        timer = matchDurationMinutes * 60.0f + matchDurationSeconds;
+    {        
+        gameTimer = matchDurationMinutes * 60.0f + matchDurationSeconds;
+        ballRespawnTimer = ballRespawnTime;
 
         Vector3 pongOffset = new Vector3(0, 0, -1) * ray;
         Vector3 cornerOffset = new Vector3(1, 0, -1) * ray;
@@ -53,24 +58,24 @@ public class GameManager : MonoBehaviour
         }
 
         cornerOffset.y = pongOffset.y += 1.5f;
-        
+        bounds = Vector3.Distance(transform.position + pongOffset, transform.position + cornerOffset) - 
+            pongPrefab.transform.GetComponent<Renderer>().bounds.size.x * 0.5f - boundsDecrement;
+
         for (int i = 0; i < pongNumber; i++)
         {
             Pong pong = Instantiate(pongPrefab, transform.position + pongOffset, Quaternion.Euler(new Vector3(0, angle * i))) as Pong;
             pong.transform.parent = transform;
             pong.name = "Pong" + i;
             pong.points = initialPoints;
+            pong.bounds = bounds;
             scoreManager.players.Add(pong);
-            activePlayers.Add(pong);
-
-            
+            activePlayers.Add(pong);            
 
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
-            pong.bounds = Vector3.Distance(pong.transform.position, transform.position + cornerOffset) - pong.transform.GetComponent<Renderer>().bounds.size.x * 0.5f;
-
+            
             //Atribuir baliza ao pong
             Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 3.3f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
-            goal.transform.GetComponent<BoxCollider>().size = new Vector3(pong.bounds * 2.5f, 0, 5f);
+            goal.transform.GetComponent<BoxCollider>().size = new Vector3(bounds * (pongs8? 2.7f : 2.2f), 0, 5f);
             goal.owner = pong;
             goal.gameM = this;
             goal.scoreManager = scoreManager;
@@ -80,7 +85,6 @@ public class GameManager : MonoBehaviour
             if (i == 0)
             {
                 pong.controlable = true; //Mudar conforme o jogador
-                Pong.myBounds = pong.bounds;
             }
 
             else
@@ -99,7 +103,10 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBall()
     {
-        ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Ball;
+        Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), 
+            Quaternion.identity) as Ball;
+        ball.pongQuartets = pongNumber/4;
+        balls.Add(ball);
     }
 	
     public void Lost(Pong p)
@@ -114,9 +121,12 @@ public class GameManager : MonoBehaviour
     public void Won(Pong p)
     {
         gameEnded = true;
-        ball.gameObject.SetActive(false);
+        foreach (Ball b in balls)
+        {
+            Destroy(b.gameObject);
+        }
+        balls.Clear();
         hud.WinnerScreen(p.name);
-
     }
 
     public void NewGame()
@@ -127,7 +137,8 @@ public class GameManager : MonoBehaviour
     void RemovePlayers()
     {
         List<Pong> toRemove = new List<Pong>();
-        if (activePlayers.Count == 1) Won(activePlayers[0]);
+        if (activePlayers.Count == 1)
+            Won(activePlayers[0]);
         else
         {
             foreach (Pong p in activePlayers)
@@ -164,11 +175,24 @@ public class GameManager : MonoBehaviour
 
 	void Update ()
     {
-        if(!gameEnded) timer -= Time.deltaTime;
-        hud.timer = timer;
-        if (timer <= 0) TimeEnded();
-        if (Input.GetKeyDown(KeyCode.P)) PauseUnpause();
+        if (!gameEnded)
+        {
+            gameTimer -= Time.deltaTime;
+            ballRespawnTimer -= Time.deltaTime;
+            if (ballRespawnTimer <= 0)
+            {
+                SpawnBall();
+                ballRespawnTimer = ballRespawnTime;
+            }
+        }
+        hud.timer = gameTimer;
+        if (gameTimer <= 0)
+            TimeEnded();
+
+        if (Input.GetKeyDown(KeyCode.P))
+            PauseUnpause();
         RemovePlayers();
         
+
 	}
 }

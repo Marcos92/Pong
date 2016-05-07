@@ -36,9 +36,11 @@ public class Goal : MonoBehaviour {
     {
         if (isActive)
         {
-            if (other.GetComponent<Ball>())
+            Ball b = other.GetComponent<Ball>();
+            if (b)
             {
                 ScoreGoal();
+                gameM.balls.Remove(b);
                 Destroy(other.gameObject);
                 gameM.SpawnBall();
             }

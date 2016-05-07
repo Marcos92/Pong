@@ -9,13 +9,18 @@ public class Ball : MonoBehaviour {
 	int actualDirectionZ, actualDirectionX;
 	float x, z;
 	Vector3 dir;
+    internal int pongQuartets;
 
 	// Use this for initialization
 	void Start ()
-	{
+    {
+        System.Random r = new System.Random();
+        int random = r.Next(0, 8 * pongQuartets);
+        float angle = Mathf.PI / (8 * pongQuartets)  + Mathf.PI / (4 * pongQuartets) * random;
+
         rb = GetComponent<Rigidbody>();
 		sc = GetComponent<SphereCollider> ();
-		rb.velocity = Vector3.forward * speed;
+		rb.velocity = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * speed;
 		actualDirectionZ = 1;
 		actualDirectionX = 1;
 	}
@@ -28,12 +33,8 @@ public class Ball : MonoBehaviour {
 			Physics.IgnoreCollision (sc, col.collider);
 			rb.velocity = dir * speed;
 		}
-
-<<<<<<< HEAD
-		else if (col.gameObject.tag == "Player") 
-=======
+        
 		else if (col.gameObject.tag == "Player")
->>>>>>> origin/master
 		{
 			int pongAngle = (int)col.transform.rotation.eulerAngles.y;
 

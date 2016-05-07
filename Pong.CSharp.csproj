@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\CountDown.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Pong.cs" />
     <Compile Include="Assets\Scripts\RT_MeshRotator.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
