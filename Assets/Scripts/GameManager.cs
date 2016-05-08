@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public int maxBalls = 10;
 
     public bool pongs8;
-    int pongNumber = 4;
+    internal int pongNumber = 4;
     float bounds;
     public float ray, boundsDecrement;
 
