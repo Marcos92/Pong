@@ -42,7 +42,7 @@ public class Goal : MonoBehaviour {
                 ScoreGoal();
                 gameM.balls.Remove(b);
                 Destroy(other.gameObject);
-                gameM.SpawnBall();
+                if(gameM.balls.Count == 0) gameM.SpawnBall(); //Só faz spawn de outra bola caso não exista nenhuma de modo a evitar existirem demasiadas bolas em jogo.
             }
         }
     }

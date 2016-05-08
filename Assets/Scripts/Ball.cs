@@ -25,8 +25,8 @@ public class Ball : MonoBehaviour {
 		actualDirectionX = 1;
 	}
 
-	void OnCollisionEnter(Collision col) {
-
+	void OnCollisionEnter(Collision col)
+    {
 		if (col.gameObject.tag == "Goal") 
 		{
 			//Ignores collision and keeps same direction

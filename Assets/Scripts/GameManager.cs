@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public Ball ballPrefab;
     public Score scoreManager;
     public float ballRespawnTime;
+    public int maxBalls = 10;
 
     public bool pongs8;
     int pongNumber = 4;
@@ -98,7 +99,7 @@ public class GameManager : MonoBehaviour
 
         scoreManager.UpdateScores();
 
-        SpawnBall();
+        if(balls.Count < maxBalls) SpawnBall(); //Limita o número de bolas em simultâneo
     }
 
     public void SpawnBall()
