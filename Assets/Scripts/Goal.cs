@@ -5,7 +5,7 @@ public class Goal : MonoBehaviour {
 
     public Pong owner;
     public GameManager gameM;
-    public Score scoreManager;
+    public HUD hud;
     private bool isActive = true;
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class Goal : MonoBehaviour {
     void ScoreGoal()
     {
         owner.points -= 1;
-        scoreManager.UpdateScores();
+        hud.UpdateScores();
     }
 
     public void CloseGoal()

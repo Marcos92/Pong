@@ -8,7 +8,7 @@ public class Pong : MonoBehaviour
     public bool controlable = false;
     [HideInInspector]
     public float bounds;
-    float xMin, xMax, zMin, zMax;
+    public float xMin, xMax, zMin, zMax;
     [HideInInspector]
     public Goal goal;
     //Rigidbody rigidBody;

@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public GameObject cornerPrefab;
     public Goal goalPrefab;
 	public Ball ballPrefab;
-    public Score scoreManager;
     public float ballRespawnTime;
     public int maxBalls = 10;
 
@@ -69,7 +68,7 @@ public class GameManager : MonoBehaviour
             pong.name = "Pong" + i;
             pong.points = initialPoints;
             pong.bounds = bounds;
-            scoreManager.players.Add(pong);
+            hud.players.Add(pong);
             activePlayers.Add(pong);            
 
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
@@ -79,9 +78,8 @@ public class GameManager : MonoBehaviour
             goal.transform.GetComponent<BoxCollider>().size = new Vector3(bounds * (pongs8? 2.7f : 2.2f), 0, 5f);
             goal.owner = pong;
             goal.gameM = this;
-            goal.scoreManager = scoreManager;
+            goal.hud = hud;
             goals.Add(goal);
-            //pong.goal = goal;
 
             if (i == 0)
             {
@@ -97,7 +95,7 @@ public class GameManager : MonoBehaviour
             cornerOffset = rotation * cornerOffset;
 		}
 
-        scoreManager.UpdateScores();
+        hud.UpdateScores();
 
         if(balls.Count < maxBalls) SpawnBall(); //Limita o número de bolas em simultâneo
     }
