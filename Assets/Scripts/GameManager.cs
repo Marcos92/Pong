@@ -28,15 +28,19 @@ public class GameManager : MonoBehaviour
     private bool gameEnded = false;
 
     public HUD hud;
+    AudioSource audioSource;
 
     private List<Pong> activePlayers;
     private List<Goal> goals;
     internal List<Ball> balls = new List<Ball>();
     private bool isPaused = false;
 
-	// Use this for initialization
+	
+
+
 	void Start ()
-    {        
+    {
+        audioSource = GetComponent<AudioSource>();
         gameTimer = matchDurationMinutes * 60.0f + matchDurationSeconds;
         ballRespawnTimer = ballRespawnTime;
 
@@ -115,7 +119,12 @@ public class GameManager : MonoBehaviour
         p.gameObject.SetActive(false);
         foreach (Goal g in goals)
         {
-            if (g.owner == p) g.CloseGoal();
+            if (g.owner == p)
+            {
+                g.CloseGoal();
+                //audioSource.clip = p.lose;
+                //audioSource.Play();
+            }
         }
     }
 
@@ -128,6 +137,8 @@ public class GameManager : MonoBehaviour
         }
         balls.Clear();
         hud.WinnerScreen(p.name);
+        audioSource.clip = p.win;
+        audioSource.Play();
     }
 
     public void NewGame()

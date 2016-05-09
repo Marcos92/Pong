@@ -5,14 +5,16 @@ public class Goal : MonoBehaviour {
 
     public Pong owner;
     public GameManager gameM;
+    AudioSource aSource;
+    public AudioClip goalClip;
     public Score scoreManager;
     private bool isActive = true;
-	// Use this for initialization
+
 	void Start () {
-	
+	    aSource = GetComponent<AudioSource>();
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
 	    
 	}
@@ -20,6 +22,8 @@ public class Goal : MonoBehaviour {
     void ScoreGoal()
     {
         owner.points -= 1;
+        aSource.clip = goalClip;
+        aSource.Play();
         scoreManager.UpdateScores();
     }
 

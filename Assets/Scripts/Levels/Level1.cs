@@ -10,9 +10,15 @@ public class Level1 : MonoBehaviour
     public Rock rockPrefab;
     float ray;
     public float shakeIntensity;
+    public AudioClip quake;
+    AudioSource audioSource;
+    bool playOnce = false;
+
 
 	void Start ()
     {
+        audioSource = GetComponent<AudioSource>();
+
         nextQuakeTime = Time.time + timeBetweenQuakes;
 
         ray = gameManager.ray * 0.75f; //Evita que as rochas façam spawn nas extremidades do campo
@@ -22,6 +28,12 @@ public class Level1 : MonoBehaviour
     {
 	    if(Time.time >= nextQuakeTime)
         {
+            if (!playOnce)
+            {
+                playOnce = true;
+                audioSource.clip = quake;
+                audioSource.Play();
+            }
             nextQuakeTime = Time.time + nextQuakeTime + numberOfRocks * timeBetweenRocks;
 
             StartCoroutine("GenerateRocks");
