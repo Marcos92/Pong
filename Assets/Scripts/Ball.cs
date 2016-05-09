@@ -33,7 +33,6 @@ public class Ball : MonoBehaviour {
 			Physics.IgnoreCollision (sc, col.collider);
 			rb.velocity = dir * speed;
 		}
-        
 		else if (col.gameObject.tag == "Player")
 		{
 			int pongAngle = (int)col.transform.rotation.eulerAngles.y;

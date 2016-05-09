@@ -21,7 +21,7 @@ public class Pong : MonoBehaviour
     public float delay;
     public float nextSearchTime;
     public float DelayedReaction;
-    
+
 
     //Strike
     [HideInInspector]
@@ -33,9 +33,15 @@ public class Pong : MonoBehaviour
     public float dashDuration = 0.5f;
     public float dashSpeedMultiplier = 1.2f;
 
-	void Start ()
+    //[HideInInspector]
+    public AudioClip hitBall, win;
+    bool playOnce = false;
+    AudioSource aSource;
+
+    void Start()
     {
         //rigidBody = GetComponent<Rigidbody>();
+        aSource = GetComponent<AudioSource>();
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
@@ -59,32 +65,32 @@ public class Pong : MonoBehaviour
         nextSearchTime = Time.time;
     }
 
-    void Update ()
+    void Update()
     {
-        if(controlable) direction = (int)Input.GetAxisRaw("Horizontal");
+        if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
 
         float velocity = direction * Time.deltaTime * speed;
 
-        if (bot) 
+        if (bot)
         {
             if (Time.time <= nextSearchTime)
             {
                 botMoveToBallPosition();
                 //Guardar posição da bola mais próxima
             }
-            
-            else if(Time.time > nextSearchTime + delay)
+
+            else if (Time.time > nextSearchTime + delay)
             {
-                nextSearchTime = Time.time + delay; 
+                nextSearchTime = Time.time + delay;
             }
 
             //Movimento para a direcção guardada
         }
         else transform.Translate(transform.right * velocity, transform.parent);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(Input.GetAxisRaw("Horizontal") == 0)
+            if (Input.GetAxisRaw("Horizontal") == 0)
             {
                 //Strike
                 StartCoroutine("Strike");
@@ -114,14 +120,31 @@ public class Pong : MonoBehaviour
         float endDashTime = Time.time + dashDuration;
         float v = d * Time.deltaTime * speed * dashSpeedMultiplier;
 
-        while(Time.time < endDashTime)
+        while (Time.time < endDashTime)
         {
             transform.Translate(transform.right * v, transform.parent);
             yield return null;
         }
     }
 
-   enum BotDirection { DirectionX, DirectionY};
+    enum BotDirection { DirectionX, DirectionY };
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Ball" && !playOnce)
+        {
+            playOnce = true;
+            aSource.clip = hitBall;
+            aSource.Play();
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ball" && playOnce)
+        {
+            playOnce = false;
+        }
+    }
 
     //void OnTriggerEnter(Collider collider)
     //{
