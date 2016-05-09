@@ -28,8 +28,18 @@ public class Batter : MonoBehaviour
 
             Rigidbody rb = ball.GetComponent<Rigidbody>();
             rb.velocity = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * 60;
+            transform.forward = rb.velocity;
             ball.pongQuartets = pongQuartets;
+            StartCoroutine(AlterBallSpeed(ball));
         }
         else other.tag = "Ball";
+    }
+
+    IEnumerator AlterBallSpeed(Ball ball)
+    {
+        float speed = ball.speed;
+        ball.speed = 60;
+        yield return null;
+        ball.speed = speed;
     }
 }
