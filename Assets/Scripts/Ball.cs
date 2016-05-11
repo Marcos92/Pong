@@ -33,6 +33,16 @@ public class Ball : MonoBehaviour {
 			Physics.IgnoreCollision (sc, col.collider);
 			rb.velocity = dir * speed;
 		}
+<<<<<<< HEAD
+
+
+		else if (col.gameObject.tag == "Player")
+        {
+
+        }
+
+=======
+>>>>>>> origin/master
 		else if (col.gameObject.tag == "Player")
 		{
 			int pongAngle = (int)col.transform.rotation.eulerAngles.y;
