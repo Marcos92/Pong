@@ -23,19 +23,16 @@ public class GameManager : MonoBehaviour
     public float matchDurationMinutes;
     public float matchDurationSeconds;
     
-    private float gameTimer, ballRespawnTimer;
-    private bool gameEnded = false;
+    protected float gameTimer, ballRespawnTimer;
+    protected bool gameEnded = false;
 
     public HUD hud;
-    AudioSource audioSource;
+    protected AudioSource audioSource;
 
-    private List<Pong> activePlayers;
-    private List<Goal> goals;
-    internal List<Ball> balls = new List<Ball>();
+    protected List<Pong> activePlayers;
+    protected List<Goal> goals;
+    internal List<Ball> balls;
     private bool isPaused = false;
-
-	
-
 
 	void Start ()
     {
@@ -47,6 +44,7 @@ public class GameManager : MonoBehaviour
         Vector3 cornerOffset = new Vector3(1, 0, -1) * ray;
         activePlayers = new List<Pong>();
         goals = new List<Goal>();
+        balls = new List<Ball>();
 
         if (pongs8)
             pongNumber = 8;
@@ -102,6 +100,13 @@ public class GameManager : MonoBehaviour
         hud.UpdateScores();
 
         if(balls.Count < maxBalls) SpawnBall(); //Limita o número de bolas em simultâneo
+
+        OnStart();
+    }
+
+    protected virtual void OnStart()
+    {
+
     }
 
     public void SpawnBall()
@@ -166,7 +171,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void PauseUnpause()
+    protected void PauseUnpause()
     {
         isPaused = !isPaused;            
         Time.timeScale = 1 - Convert.ToInt32(isPaused);

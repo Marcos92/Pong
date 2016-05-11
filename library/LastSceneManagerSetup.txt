@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Rotating Tower.unity
-=======
-- path: Assets/Mata.unity
->>>>>>> origin/master
+- path: Assets/Baseball.unity
   isLoaded: 1
   isActive: 1

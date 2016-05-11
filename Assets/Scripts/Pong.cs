@@ -21,13 +21,7 @@ public class Pong : MonoBehaviour
     public float delay;
     public float nextSearchTime;
     public float DelayedReaction;
-<<<<<<< HEAD
     public float RamdomDistanceToDelay;
-
-    
-=======
-
->>>>>>> origin/master
 
     //Strike
     [HideInInspector]
@@ -46,8 +40,6 @@ public class Pong : MonoBehaviour
 
     void Start()
     {
-        
-
         //rigidBody = GetComponent<Rigidbody>();
         aSource = GetComponent<AudioSource>();
         Vector3 right = transform.right;
@@ -75,11 +67,8 @@ public class Pong : MonoBehaviour
 
     void Update()
     {
-<<<<<<< HEAD
         delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
-
-=======
->>>>>>> origin/master
+        
         if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
 
         float velocity = direction * Time.deltaTime * speed;

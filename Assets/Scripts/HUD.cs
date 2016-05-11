@@ -35,6 +35,13 @@ public class HUD : MonoBehaviour {
         restartButton.gameObject.SetActive(true);
     }
 
+    public void LoserScreen()
+    {
+        winnerText.text = "BOSS WON";
+        winnerText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
+    }
+
     public void PauseUnpause(bool isPaused)
     {
         pausedText.gameObject.SetActive(isPaused);
@@ -50,6 +57,20 @@ public class HUD : MonoBehaviour {
             else score += p.points;
             score += "\t\t";
         }
+        scoreText.text = score;
+    }
+
+    public void UpdateScoresBaseball(int initialPoints, int bossHealth)
+    {
+        string score = "Players' health: ";
+        int i = 0;
+        foreach (Pong p in players)
+        {
+            i += initialPoints - p.points;
+        }
+
+        i = initialPoints - i;
+        score += i + "\tBoss's health: " + bossHealth;
         scoreText.text = score;
     }
 

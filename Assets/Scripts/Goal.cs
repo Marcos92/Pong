@@ -22,7 +22,10 @@ public class Goal : MonoBehaviour {
     void ScoreGoal()
     {
         owner.points -= 1;
-        hud.UpdateScores();
+        if (gameM is BaseballManager)
+            hud.UpdateScoresBaseball(gameM.initialPoints, (gameM as BaseballManager).batter.health);
+        else
+            hud.UpdateScores();
         aSource.clip = goalClip;
         aSource.Play();
     }

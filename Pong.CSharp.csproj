@@ -58,14 +58,14 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -77,17 +77,17 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI_Rotating_Tower.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
+    <Compile Include="Assets\Scripts\BaseballManager.cs" />
     <Compile Include="Assets\Scripts\Batter.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\CountDown.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager2.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Scripts\Levels\Level1.cs" />
->>>>>>> origin/master
     <Compile Include="Assets\Scripts\Pong.cs" />
+    <Compile Include="Assets\Scripts\PongCircularMove.cs" />
     <Compile Include="Assets\Scripts\RT_MeshRotator.cs" />
     <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
