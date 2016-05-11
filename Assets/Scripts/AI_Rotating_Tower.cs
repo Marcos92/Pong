@@ -40,7 +40,18 @@ public class AI_Rotating_Tower : MonoBehaviour {
 
        if(toBall)
         {
-            if(Vector3.Distance(transform.position, ClosestBall.transform.position)<= 1)
+            
+           /// float distance = Vector3.Magnitude( - );
+            //float distance = Mathf.Sqrt((ClosestBall.transform.position - transform.position).sqrMagnitude);
+
+            Vector3 dir = ClosestBall.transform.position - transform.position;
+            float length = dir.magnitude;
+            Vector3 heading = ClosestBall.transform.position - transform.position;
+            float distance = Vector3.Distance(ClosestBall.transform.position, transform.position);
+
+
+
+            if (distance <= 1.0f)
             {
                 ClosestBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 print("entrei!!!");
@@ -49,7 +60,11 @@ public class AI_Rotating_Tower : MonoBehaviour {
             else
             {
                 GoToBall();
+               
             }
+            print(distance);
+
+
         }
 	}
 

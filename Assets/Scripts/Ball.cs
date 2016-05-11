@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour {
 	int actualDirectionZ, actualDirectionX;
 	float x, z;
 	Vector3 dir;
-    internal int pongQuartets;
+    internal int pongQuartets = 4;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +20,7 @@ public class Ball : MonoBehaviour {
 
         rb = GetComponent<Rigidbody>();
 		sc = GetComponent<SphereCollider> ();
+
 		rb.velocity = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * speed;
 		actualDirectionZ = 1;
 		actualDirectionX = 1;

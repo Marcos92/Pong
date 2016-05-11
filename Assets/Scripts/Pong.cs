@@ -136,8 +136,8 @@ public class Pong : MonoBehaviour
         if (other.gameObject.tag == "Ball" && !playOnce)
         {
             playOnce = true;
-            aSource.clip = hitBall;
-            aSource.Play();
+            //aSource.clip = hitBall;
+            //aSource.Play();
         }
     }
     void OnCollisionExit(Collision other)
