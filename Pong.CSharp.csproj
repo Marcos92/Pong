@@ -77,19 +77,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI_Rotating_Tower.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
-    <Compile Include="Assets\Scripts\BaseballManager.cs" />
-    <Compile Include="Assets\Scripts\Batter.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\CountDown.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameManager2.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
-    <Compile Include="Assets\Scripts\Levels\Level1.cs" />
+    <Compile Include="Assets\Scripts\Levels\Baseball\BaseballManager.cs" />
+    <Compile Include="Assets\Scripts\Levels\Baseball\Batter.cs" />
+    <Compile Include="Assets\Scripts\Levels\Quake\Quake.cs" />
+    <Compile Include="Assets\Scripts\Levels\Quake\Rock.cs" />
     <Compile Include="Assets\Scripts\Pong.cs" />
     <Compile Include="Assets\Scripts\PongCircularMove.cs" />
     <Compile Include="Assets\Scripts\RT_MeshRotator.cs" />
-    <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\TestAI.cs" />
     <Compile Include="Assets\Scripts\WayPointRotatingTower.cs" />
