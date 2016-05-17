@@ -74,6 +74,19 @@ public class HUD : MonoBehaviour {
         scoreText.text = score;
     }
 
+    public void UpdateScoresTeams(List<Team> equipas)
+    {
+        string score = "Scores:\t\t";
+        foreach (Team t in equipas)
+        {
+            score += "Team" + t.number + ": ";
+            if (t.score == 0) score += "Lost";
+            else score += t.score;
+            score += "\t\t";
+        }
+        scoreText.text = score;
+    }
+
     void CountDown()
     {
         minutos = (int)(timer / 60f);

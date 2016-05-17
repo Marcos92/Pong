@@ -8,11 +8,16 @@ public class PongCircularMove : Pong
     public float distanceToCenter;
     public float currentAngle;
     private bool lookingAtCenter;
+    private int directionX, directionZ;
 
     public bool lookAtCenter;
+    public int team;
+
+    public float moveRadius;
+    public bool isMid;
 
 
-	void Start ()
+    void Start()
     {
         //rigidBody = GetComponent<Rigidbody>();
         Vector3 right = transform.right;
@@ -38,31 +43,50 @@ public class PongCircularMove : Pong
         nextSearchTime = Time.time;
     }
 
-    void Update ()
+    void Update()
     {
         MoveCircular();
     }
 
     void MoveCircular()
     {
-        if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
-        float tempAngle = currentAngle + direction * speed;
-        if(tempAngle>=minDegrees && tempAngle <= maxDegrees)
-            currentAngle += direction * speed;
-        float degrees = currentAngle * Mathf.PI / 180;
-        float x = Mathf.Cos(degrees) * distanceToCenter;
-        float z = Mathf.Sin(degrees) * distanceToCenter;
-
-        transform.position = new Vector3(x, transform.position.y, z);
-        if (!lookAtCenter)
+        if (!isMid)
         {
-            if (!lookingAtCenter)
+            if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
+            float tempAngle = currentAngle + direction * speed;
+            if (tempAngle >= minDegrees && tempAngle <= maxDegrees)
+                currentAngle += direction * speed;
+            float degrees = currentAngle * Mathf.PI / 180;
+            float x = Mathf.Cos(degrees) * distanceToCenter;
+            float z = Mathf.Sin(degrees) * distanceToCenter;
+
+            transform.position = new Vector3(x, transform.position.y, z);
+            if (!lookAtCenter)
             {
-                transform.LookAt(Vector3.zero);
-                lookingAtCenter = true;
+                if (!lookingAtCenter)
+                {
+                    transform.LookAt(Vector3.zero);
+                    lookingAtCenter = true;
+                }
             }
+            else transform.LookAt(Vector3.zero);
         }
-        else transform.LookAt(Vector3.zero);
+        else
+        {
+            if (controlable)
+            {
+                directionX = (int)Input.GetAxisRaw("Horizontal");
+                directionZ = (int)Input.GetAxisRaw("Vertical");
+            }
+            float velocityX = directionX * Time.deltaTime * speed;
+            float velocityZ = directionZ * Time.deltaTime * speed;
+            Vector3 newPosition = transform.position + new Vector3(velocityX, 0.0f, velocityZ);
+
+            if (newPosition.x >= -moveRadius && newPosition.x <= moveRadius)
+                transform.position += new Vector3(velocityX, 0.0f, 0.0f);
+            if (newPosition.z >= -moveRadius && newPosition.z <= moveRadius)
+                transform.position += new Vector3(0.0f, 0.0f, velocityZ);
+        }
     }
 
     IEnumerator Strike()
@@ -77,14 +101,14 @@ public class PongCircularMove : Pong
         float endDashTime = Time.time + dashDuration;
         float v = d * Time.deltaTime * speed * dashSpeedMultiplier;
 
-        while(Time.time < endDashTime)
+        while (Time.time < endDashTime)
         {
             transform.Translate(transform.right * v, transform.parent);
             yield return null;
         }
     }
 
-   enum BotDirection { DirectionX, DirectionY};
+    enum BotDirection { DirectionX, DirectionY };
 
     //void OnTriggerEnter(Collider collider)
     //{
