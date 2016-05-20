@@ -22,6 +22,7 @@ public class Pong : MonoBehaviour
     public float nextSearchTime;
     public float DelayedReaction;
     public float RamdomDistanceToDelay;
+    public float dashCooldown;
 
     //Strike
     [HideInInspector]
@@ -103,6 +104,7 @@ public class Pong : MonoBehaviour
                 StartCoroutine("Dash", Input.GetAxisRaw("Horizontal"));
             }
         }
+        dashCooldown = dashCooldown - Time.deltaTime;
 
         Vector3 pos = transform.localPosition;
         pos.x = Mathf.Clamp(transform.localPosition.x, xMin, xMax);
@@ -135,6 +137,7 @@ public class Pong : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball" && !playOnce)
         {
+            if (bot) StartCoroutine("Strike");
             playOnce = true;
             //aSource.clip = hitBall;
             //aSource.Play();
@@ -184,13 +187,23 @@ public class Pong : MonoBehaviour
 
             if (DistanceLeft < DistanceRight && DistanceLeft < DistanceForward)
             {
-                direction = -1;
+                if (DistanceLeft < DistanceRight * 0.5 && DistanceLeft < DistanceForward * 0.95 && dashCooldown <= 0)
+                {
+                    StartCoroutine("Dash", -1);
+                    dashCooldown = 2;
+                }else
+                    direction = -1;
 
             }
 
             else if (DistanceLeft > DistanceRight && DistanceRight < DistanceForward)
             {
-                direction = 1;
+                if (DistanceLeft > DistanceRight * 0.5 && DistanceRight < DistanceForward * 0.9 && dashCooldown <= 0)
+                {
+                    StartCoroutine("Dash", 1);
+                    dashCooldown = 2;
+                }else
+                    direction = 1;
             }
 
             else
