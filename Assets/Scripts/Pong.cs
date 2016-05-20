@@ -169,7 +169,7 @@ public class Pong : MonoBehaviour
     //    }
     //}
 
-    void botMoveToBallPosition()
+    public virtual void botMoveToBallPosition()
     {
         GameObject go = GameObject.Find("Ball(Clone)");
         if (go)
