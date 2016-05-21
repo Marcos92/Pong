@@ -23,8 +23,8 @@ public class BallMata : Ball
 
         rb = GetComponent<Rigidbody>();
         sc = GetComponent<SphereCollider>();
-        //rb.velocity = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * speed;
-        rb.velocity = new Vector3(0, 0, 1) * speed;
+        rb.velocity = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * speed;
+        //rb.velocity = new Vector3(0, 0, 1) * speed;
         actualDirectionZ = 1;
         actualDirectionX = 1;
     }
