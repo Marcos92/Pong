@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
         cornerOffset.y = pongOffset.y += 1.5f;
         bounds = Vector3.Distance(transform.position + pongOffset, transform.position + cornerOffset) - 
-            pongPrefab.transform.GetComponent<Renderer>().bounds.size.x * 0.5f - boundsDecrement;
+            pongPrefab.transform.GetComponent<BoxCollider>().bounds.size.x * 0.5f - boundsDecrement;
 
         for (int i = 0; i < pongNumber; i++)
         {

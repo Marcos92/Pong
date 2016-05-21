@@ -52,24 +52,54 @@ public class PongCircularMove : Pong
     {
         if (!isMid)
         {
-            if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
-            float tempAngle = currentAngle + direction * speed;
-            if (tempAngle >= minDegrees && tempAngle <= maxDegrees)
-                currentAngle += direction * speed;
-            float degrees = currentAngle * Mathf.PI / 180;
-            float x = Mathf.Cos(degrees) * distanceToCenter;
-            float z = Mathf.Sin(degrees) * distanceToCenter;
-
-            transform.position = new Vector3(x, transform.position.y, z);
-            if (!lookAtCenter)
+            if (bot)
             {
-                if (!lookingAtCenter)
+                if (Time.time <= nextSearchTime)
                 {
+                    botMoveToBallPosition();
+                    //Guardar posição da bola mais próxima
+                }
+
+                else if (Time.time > nextSearchTime + delay)
+                {
+                    nextSearchTime = Time.time + delay;
+                }
+            }
+
+            else
+            {
+                if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
+
+                //float tempAngle = currentAngle + direction * speed;
+                //if (tempAngle >= minDegrees && tempAngle <= maxDegrees)
+                //    currentAngle += direction * speed;
+
+                float velocity = direction * Time.deltaTime * speed;
+
+                float tempAngle = currentAngle + velocity;
+
+                if (tempAngle >= minDegrees && tempAngle <= maxDegrees)
+                    currentAngle += velocity;
+
+
+                float degrees = currentAngle * Mathf.PI / 180;
+                float x = Mathf.Cos(degrees) * distanceToCenter;
+                float z = Mathf.Sin(degrees) * distanceToCenter;
+
+                transform.position = new Vector3(x, transform.position.y, z);
+                if (lookAtCenter)
+                {
+                    //if (!lookingAtCenter)
+                    //{
+                    //    transform.LookAt(Vector3.zero);
+                    //    lookingAtCenter = true;
+                    //}
                     transform.LookAt(Vector3.zero);
                     lookingAtCenter = true;
                 }
+                else transform.rotation = Quaternion.identity;
             }
-            else transform.LookAt(Vector3.zero);
+            
         }
         else
         {
@@ -87,6 +117,8 @@ public class PongCircularMove : Pong
             if (newPosition.z >= -moveRadius && newPosition.z <= moveRadius)
                 transform.position += new Vector3(0.0f, 0.0f, velocityZ);
         }
+
+        
     }
 
     IEnumerator Strike()
@@ -110,27 +142,12 @@ public class PongCircularMove : Pong
 
     enum BotDirection { DirectionX, DirectionY };
 
-    //void OnTriggerEnter(Collider collider)
-    //{
-    //    print("enter");
-    //    if (collider.tag == "Untagged")
-    //    {
-    //        corner = direction;
-    //    }
-    //}
-
-    //void OnTriggerExit(Collider collider)
-    //{
-    //    print("leave");
-    //    if (collider.tag == "Untagged")
-    //    {
-    //        corner = 0;
-    //    }
-    //}
-
-    void botMoveToBallPosition()
+    public void botMoveToBallPosition()
     {
-        GameObject go = GameObject.Find("Ball(Clone)");
+        delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
+        print("ok");
+        //GameObject go = GameObject.Find("Ball(Clone)");
+        GameObject go = GameObject.FindGameObjectWithTag("Ball");
         if (go)
         {
             nearestBall = go.transform;
@@ -162,7 +179,25 @@ public class PongCircularMove : Pong
 
             float velocity = direction * Time.deltaTime * speed;
 
-            transform.Translate(transform.right * velocity, transform.parent);
+            float tempAngle = currentAngle + velocity;
+
+            if (tempAngle >= minDegrees && tempAngle <= maxDegrees)
+                currentAngle += velocity;
+
+            float degrees = currentAngle * Mathf.PI / 180;
+            float x = Mathf.Cos(degrees) * distanceToCenter;
+            float z = Mathf.Sin(degrees) * distanceToCenter;
+
+            transform.position = new Vector3(x, transform.position.y, z);
+
+            if (lookAtCenter)
+            {
+                    transform.LookAt(Vector3.zero);
+                    lookingAtCenter = true;
+            }
+            else transform.rotation = Quaternion.identity;
+            
+            //transform.Translate(transform.right * velocity, transform.parent);
             //print(velocity + " " + DistanceForward + " " + DistanceLeft + " " + DistanceRight);
         }
     }

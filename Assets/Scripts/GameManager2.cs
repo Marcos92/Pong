@@ -25,7 +25,7 @@ public class GameManager2 : GameManager
     public bool pongLookigAtCenter;
     public float centerMoveRadius;
 
-    public PongMid centerPongPrefab;
+    //public PongMid centerPongPrefab;
 
     public List<Team> equipas;
 
@@ -102,11 +102,14 @@ public class GameManager2 : GameManager
             if (i == 0)
             {
                 pong.controlable = true; //Mudar conforme o jogador
+                pong.bot = false;
             }
 
             else
             {
+                pong.controlable = false;
                 pong.bot = true;
+                pong.RamdomDistanceToDelay = 0.2f;
             }
 
         }
@@ -121,7 +124,8 @@ public class GameManager2 : GameManager
         pongmid.team = (pongNumber - 1) / 2;
         pongmid.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 1.0f);
         pongmid.isMid = true;
-        pongmid.controlable = true;
+        pongmid.controlable = false;
+        pongmid.bot = true;
         pongmid.speed = 20;
         activePlayers.Add(pongmid);
 
@@ -142,7 +146,9 @@ public class GameManager2 : GameManager
 
     public void SwitchMiddle()
     {
-        PongCircularMove pTemp;
+        PongCircularMove pTemp = new PongCircularMove();
+        bool wasBot;
+        float oldSpeed = 0;
         int oldmid = 0;
         foreach (PongCircularMove p in activePlayers)
         {
@@ -156,16 +162,27 @@ public class GameManager2 : GameManager
         int newMid = oldmid + 1;
         if (newMid >= pongNumber - 1) newMid = 0;
 
+        activePlayers[oldmid].transform.position = activePlayers[newMid].transform.position;
         activePlayers[oldmid].currentAngle = activePlayers[newMid].currentAngle;
         activePlayers[oldmid].minDegrees = activePlayers[newMid].minDegrees;
         activePlayers[oldmid].maxDegrees = activePlayers[newMid].maxDegrees;
+        oldSpeed = activePlayers[oldmid].speed;
         activePlayers[oldmid].speed = activePlayers[newMid].speed;
         activePlayers[oldmid].isMid = false;
         activePlayers[oldmid].distanceToCenter = radius;
+        activePlayers[oldmid].lookAtCenter = true;
+        //wasBot = activePlayers[oldmid].bot;
+        //activePlayers[oldmid].bot = activePlayers[newMid].bot;
+        //activePlayers[oldmid].controlable = activePlayers[newMid].controlable;
 
         activePlayers[newMid].transform.position = Vector3.zero;
         activePlayers[newMid].isMid = true;
         activePlayers[newMid].transform.rotation = Quaternion.identity;
+        activePlayers[newMid].speed = oldSpeed;
+        activePlayers[newMid].distanceToCenter = pTemp.distanceToCenter;
+        activePlayers[newMid].lookAtCenter = false;
+        //activePlayers[newMid].bot = wasBot;
+        //activePlayers[newMid].controlable = !wasBot;
 
     }
 

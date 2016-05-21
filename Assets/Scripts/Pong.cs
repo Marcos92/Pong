@@ -12,6 +12,7 @@ public class Pong : MonoBehaviour
     [HideInInspector]
     public Goal goal;
     //Rigidbody rigidBody;
+    Animator animator;
 
     public int points;
 
@@ -31,6 +32,7 @@ public class Pong : MonoBehaviour
     public float strikePower;
 
     //Dash
+    bool dashing = false;
     public float dashDuration = 0.5f;
     public float dashSpeedMultiplier = 1.2f;
 
@@ -43,6 +45,12 @@ public class Pong : MonoBehaviour
     {
         //rigidBody = GetComponent<Rigidbody>();
         aSource = GetComponent<AudioSource>();
+
+        animator = transform.GetChild(0).GetComponent<Animator>();
+        
+        
+        
+
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
@@ -69,7 +77,7 @@ public class Pong : MonoBehaviour
     void Update()
     {
         delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
-        
+
         if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
 
         float velocity = direction * Time.deltaTime * speed;
@@ -79,15 +87,12 @@ public class Pong : MonoBehaviour
             if (Time.time <= nextSearchTime)
             {
                 botMoveToBallPosition();
-                //Guardar posição da bola mais próxima
             }
 
             else if (Time.time > nextSearchTime + delay)
             {
                 nextSearchTime = Time.time + delay;
             }
-
-            //Movimento para a direcção guardada
         }
         else transform.Translate(transform.right * velocity, transform.parent);
 
@@ -110,13 +115,17 @@ public class Pong : MonoBehaviour
         pos.x = Mathf.Clamp(transform.localPosition.x, xMin, xMax);
         pos.z = Mathf.Clamp(transform.localPosition.z, zMin, zMax);
         transform.localPosition = pos;
+
+        animator.SetInteger("direction", direction);
     }
 
     IEnumerator Strike()
     {
         striking = true;
-        yield return new WaitForSeconds(1f);
+        animator.SetBool("striking", striking);
+        yield return new WaitForSeconds(strikeDuration);
         striking = false;
+        animator.SetBool("striking", striking);
     }
 
     IEnumerator Dash(float d)
@@ -124,11 +133,17 @@ public class Pong : MonoBehaviour
         float endDashTime = Time.time + dashDuration;
         float v = d * Time.deltaTime * speed * dashSpeedMultiplier;
 
+        dashing = true;
+        animator.SetBool("dashing", dashing);
+
         while (Time.time < endDashTime)
         {
             transform.Translate(transform.right * v, transform.parent);
             yield return null;
         }
+
+        dashing = false;
+        animator.SetBool("dashing", dashing);
     }
 
     enum BotDirection { DirectionX, DirectionY };
