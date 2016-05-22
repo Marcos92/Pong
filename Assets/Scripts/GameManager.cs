@@ -76,8 +76,8 @@ public class GameManager : MonoBehaviour
             Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
             
             //Atribuir baliza ao pong
-            Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 3.3f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
-            goal.transform.GetComponent<BoxCollider>().size = new Vector3(bounds * (pongs8? 2.7f : 2.2f), 0, 5f);
+            Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 5f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
+            goal.transform.GetComponent<BoxCollider>().size = new Vector3(bounds * (pongs8? 2.7f : 2.7f), 0, 5f);
             goal.owner = pong;
             goal.gameM = this;
             goal.hud = hud;

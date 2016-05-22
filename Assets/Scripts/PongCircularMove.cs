@@ -142,11 +142,7 @@ public class PongCircularMove : Pong
 
     enum BotDirection { DirectionX, DirectionY };
 
-<<<<<<< HEAD
-    public void botMoveToBallPosition()
-=======
     public override void botMoveToBallPosition()
->>>>>>> origin/master
     {
         delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
         print("ok");

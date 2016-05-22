@@ -47,9 +47,6 @@ public class Pong : MonoBehaviour
         aSource = GetComponent<AudioSource>();
 
         animator = transform.GetChild(0).GetComponent<Animator>();
-        
-        
-        
 
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
@@ -76,14 +73,14 @@ public class Pong : MonoBehaviour
 
     void Update()
     {
-        delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
-
         if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
 
         float velocity = direction * Time.deltaTime * speed;
 
         if (bot)
         {
+            delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
+
             if (Time.time <= nextSearchTime)
             {
                 botMoveToBallPosition();
