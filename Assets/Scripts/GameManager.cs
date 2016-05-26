@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     protected List<Pong> activePlayers;
     protected List<Goal> goals;
     internal List<Ball> balls;
+    protected List<GameObject> corners;
     private bool isPaused = false;
 
 	void Start ()
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
         activePlayers = new List<Pong>();
         goals = new List<Goal>();
         balls = new List<Ball>();
+        corners = new List<GameObject>();
 
         if (pongs8)
             pongNumber = 8;
@@ -73,7 +75,8 @@ public class GameManager : MonoBehaviour
             hud.players.Add(pong);
             activePlayers.Add(pong);            
 
-            Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity);
+            GameObject corner = Instantiate(cornerPrefab, transform.position + cornerOffset, Quaternion.identity) as GameObject;
+            corners.Add(corner);
             
             //Atribuir baliza ao pong
             Goal goal = Instantiate(goalPrefab, pong.transform.position - pong.transform.forward * 5f, Quaternion.Euler(new Vector3(0, angle * i))) as Goal;
@@ -109,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void SpawnBall()
+    public virtual void SpawnBall()
     {
         Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), 
             Quaternion.identity) as Ball;

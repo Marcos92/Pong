@@ -99,24 +99,10 @@ public class PongCircularMove : Pong
                 }
                 else transform.rotation = Quaternion.identity;
             }
-            
+
         }
         else
         {
-            if (bot)
-            {
-                if (Time.time <= nextSearchTime)
-                {
-                    botMoveToBallPosition();
-                    //Guardar posição da bola mais próxima
-                }
-
-                else if (Time.time > nextSearchTime + delay)
-                {
-                    nextSearchTime = Time.time + delay;
-                }
-            }
-
             if (controlable)
             {
                 directionX = (int)Input.GetAxisRaw("Horizontal");
@@ -132,7 +118,7 @@ public class PongCircularMove : Pong
                 transform.position += new Vector3(0.0f, 0.0f, velocityZ);
         }
 
-        
+
     }
 
     IEnumerator Strike()
@@ -159,8 +145,7 @@ public class PongCircularMove : Pong
     public override void botMoveToBallPosition()
     {
         delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
-        int directionForward = 0;
-
+        print("ok");
         //GameObject go = GameObject.Find("Ball(Clone)");
         GameObject go = GameObject.FindGameObjectWithTag("Ball");
         if (go)
@@ -168,64 +153,31 @@ public class PongCircularMove : Pong
             nearestBall = go.transform;
             Vector3 vectorLeftTest = ((transform.right * -1) * 2) + transform.position;
             Vector3 vectorRightTest = (transform.right * 2) + transform.position;
-            Vector3 vectorForwardTest = (transform.forward * 2) + transform.position;
-            Vector3 vectorBackwardTest = ((transform.forward * -1) * 2) + transform.position;
 
             Debug.DrawLine(transform.position, vectorLeftTest, Color.blue);
             Debug.DrawLine(transform.position, vectorRightTest, Color.blue);
 
             float DistanceLeft = Vector3.Distance(nearestBall.position, vectorLeftTest);
             float DistanceRight = Vector3.Distance(nearestBall.position, vectorRightTest);
-            float DistanceNeutral = Vector3.Distance(nearestBall.position, transform.position);
-            float DistanceBackward = Vector3.Distance(nearestBall.position, vectorBackwardTest);
-            float DistanceForward = Vector3.Distance(nearestBall.position, vectorForwardTest);
+            float DistanceForward = Vector3.Distance(nearestBall.position, transform.position);
 
-            if (!isMid)
+            if (DistanceLeft < DistanceRight && DistanceLeft < DistanceForward)
             {
-                if (DistanceLeft < DistanceRight && DistanceLeft < DistanceNeutral)
-                {
-                    direction = -1;
+                direction = -1;
 
-                }
-
-                else if (DistanceLeft > DistanceRight && DistanceRight < DistanceNeutral)
-                {
-                    direction = 1;
-                }
-
-                else
-                {
-                    direction = 0;
-                }
             }
 
-            else if(isMid)
+            else if (DistanceLeft > DistanceRight && DistanceRight < DistanceForward)
             {
-                if(DistanceRight<DistanceLeft)
-                {
-                    direction = -1;
-                }
-
-                else
-                {
-                    direction = 1;
-                }
-
-
-                if(DistanceBackward<DistanceBackward)
-                {
-                    directionForward = 1;
-                }
-
-                else
-                {
-                    directionForward = -1;
-                }
+                direction = 1;
             }
 
+            else
+            {
+                direction = 0;
+            }
 
             float velocity = direction * Time.deltaTime * speed;
-            float velocityForward = directionForward * Time.deltaTime * speed;
 
             float tempAngle = currentAngle + velocity;
 
@@ -236,26 +188,15 @@ public class PongCircularMove : Pong
             float x = Mathf.Cos(degrees) * distanceToCenter;
             float z = Mathf.Sin(degrees) * distanceToCenter;
 
-            if (isMid)
-            {
-                transform.position = new Vector3(x, transform.position.y, z);
-            }
-
-            else
-            {
-                transform.Translate(transform.right * velocity, transform.parent);
-                transform.Translate(transform.forward * velocityForward, transform.parent);
-            }
+            transform.position = new Vector3(x, transform.position.y, z);
 
             if (lookAtCenter)
             {
                 transform.LookAt(Vector3.zero);
                 lookingAtCenter = true;
             }
-            else
-            {
-                transform.rotation = Quaternion.identity;
-            }
+            else transform.rotation = Quaternion.identity;
+
             //transform.Translate(transform.right * velocity, transform.parent);
             //print(velocity + " " + DistanceForward + " " + DistanceLeft + " " + DistanceRight);
         }

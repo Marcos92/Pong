@@ -4,11 +4,12 @@ using System.Collections;
 public class Pong : MonoBehaviour
 {
     public float speed;
-    internal int direction;
+    internal int direction, directionY;
     public bool controlable = false;
     [HideInInspector]
     public float bounds;
     public float xMin, xMax, zMin, zMax;
+    public float midXMin, midXMax, midZmin, midZMax;
     [HideInInspector]
     public Goal goal;
     //Rigidbody rigidBody;
@@ -40,6 +41,12 @@ public class Pong : MonoBehaviour
     public AudioClip hitBall, win;
     bool playOnce = false;
     AudioSource aSource;
+
+    //Mata
+    public bool isMid;
+    public Vector3 oldPos;
+    public Quaternion oldRotation;
+    public int team;
 
     void Start()
     {
@@ -73,25 +80,31 @@ public class Pong : MonoBehaviour
 
     void Update()
     {
-        if (controlable) direction = (int)Input.GetAxisRaw("Horizontal");
+        if (controlable)
+        {
+            direction = (int)Input.GetAxisRaw("Horizontal");
+            if (isMid) directionY = (int)Input.GetAxisRaw("Vertical");
+        }
 
         float velocity = direction * Time.deltaTime * speed;
-
-        if (bot)
+        if (!isMid)
         {
-            delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
-
-            if (Time.time <= nextSearchTime)
+            if (bot)
             {
-                botMoveToBallPosition();
-            }
+                delay = Random.Range(RamdomDistanceToDelay - delay, RamdomDistanceToDelay + delay);
 
-            else if (Time.time > nextSearchTime + delay)
-            {
-                nextSearchTime = Time.time + delay;
+                if (Time.time <= nextSearchTime)
+                {
+                    botMoveToBallPosition();
+                }
+
+                else if (Time.time > nextSearchTime + delay)
+                {
+                    nextSearchTime = Time.time + delay;
+                }
             }
+            else transform.Translate(transform.right * velocity, transform.parent);
         }
-        else transform.Translate(transform.right * velocity, transform.parent);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -108,10 +121,22 @@ public class Pong : MonoBehaviour
         }
         dashCooldown = dashCooldown - Time.deltaTime;
 
-        Vector3 pos = transform.localPosition;
-        pos.x = Mathf.Clamp(transform.localPosition.x, xMin, xMax);
-        pos.z = Mathf.Clamp(transform.localPosition.z, zMin, zMax);
-        transform.localPosition = pos;
+        if (!isMid)
+        {
+            Vector3 pos = transform.localPosition;
+            pos.x = Mathf.Clamp(transform.localPosition.x, xMin, xMax);
+            pos.z = Mathf.Clamp(transform.localPosition.z, zMin, zMax);
+            transform.localPosition = pos;
+        }
+        else
+        {
+            transform.localPosition += new Vector3(direction, 0, directionY) * speed * Time.deltaTime;
+            Vector3 nextPos = transform.position;
+            nextPos.x = Mathf.Clamp(transform.localPosition.x, midXMin, midXMax);
+            nextPos.z = Mathf.Clamp(transform.localPosition.z, midZmin, midZMax);
+            transform.localPosition = nextPos;
+            
+        }
 
         animator.SetInteger("direction", direction);
     }

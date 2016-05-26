@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level0 (Pong).unity
+- path: Assets/Level3 (Mata).unity
   isLoaded: 1
   isActive: 1

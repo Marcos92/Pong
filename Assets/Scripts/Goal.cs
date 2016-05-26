@@ -24,6 +24,11 @@ public class Goal : MonoBehaviour {
         owner.points -= 1;
         if (gameM is BaseballManager)
             hud.UpdateScoresBaseball(gameM.initialPoints, (gameM as BaseballManager).batter.health);
+        else if(gameM is GameManagerMata)
+        {
+            GameManagerMata g = gameM as GameManagerMata;
+            g.ScoreGoal(owner.team,false);
+        }
         else
             hud.UpdateScores();
         aSource.clip = goalClip;
@@ -34,9 +39,19 @@ public class Goal : MonoBehaviour {
     {
         isActive = false;
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.SetParent(this.gameObject.transform);
         cube.transform.rotation = transform.rotation;
         cube.transform.position = transform.position;
         cube.transform.localScale = GetComponent<BoxCollider>().size;
+    }
+
+    public void ReOpen()
+    {
+        isActive = true;
+        if(transform.childCount > 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
