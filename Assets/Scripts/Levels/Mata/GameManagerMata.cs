@@ -69,7 +69,7 @@ public class GameManagerMata : GameManager
 
         activePlayers[newMid].isMid = true;
         activePlayers[newMid].transform.position = centerPosition;
-        activePlayers[newMid].transform.rotation = Quaternion.identity;
+        //activePlayers[newMid].transform.rotation = Quaternion.identity;
 
         activePlayers[currentMid].isMid = false;
 
