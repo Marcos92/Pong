@@ -48,6 +48,12 @@ public class Pong : MonoBehaviour
     public Quaternion oldRotation;
     public int team;
 
+    //Shots
+    public bool canShoot;
+    public float timeBetweenShots;
+    private float timeToNextShot;
+    public int myTeam;
+
     void Start()
     {
         //rigidBody = GetComponent<Rigidbody>();
@@ -106,7 +112,7 @@ public class Pong : MonoBehaviour
             else transform.Translate(transform.right * velocity, transform.parent);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && controlable)
         {
             if (Input.GetAxisRaw("Horizontal") == 0)
             {
@@ -139,6 +145,24 @@ public class Pong : MonoBehaviour
         }
 
         animator.SetInteger("direction", direction);
+
+        ShootTest();
+    }
+
+    void ShootTest()
+    {
+        timeToNextShot -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.G) && controlable)
+        {
+            if (canShoot && timeToNextShot <= 0)
+            {
+                timeToNextShot = timeBetweenShots;
+
+                //SpawnBullet
+                this.transform.parent.gameObject.GetComponent<GameManager>().SpawnBullet(new Vector3(transform.position.x, 1.5f, transform.position.z), Vector3.forward, myTeam);
+            }
+        }
     }
 
     IEnumerator Strike()

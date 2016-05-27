@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject cornerPrefab;
     public Goal goalPrefab;
 	public Ball ballPrefab;
+    public Bullet bulletPrefab;
     public float ballRespawnTime;
     public int maxBalls = 10;
 
@@ -33,7 +34,12 @@ public class GameManager : MonoBehaviour
     protected List<Goal> goals;
     internal List<Ball> balls;
     protected List<GameObject> corners;
+    internal List<Bullet> bullets;
     private bool isPaused = false;
+
+    //Shots
+    public bool shooter = false;
+    public float timeBetweenShots = 5.0f;
 
 	void Start ()
     {
@@ -47,6 +53,7 @@ public class GameManager : MonoBehaviour
         goals = new List<Goal>();
         balls = new List<Ball>();
         corners = new List<GameObject>();
+        bullets = new List<Bullet>();
 
         if (pongs8)
             pongNumber = 8;
@@ -65,6 +72,7 @@ public class GameManager : MonoBehaviour
         bounds = Vector3.Distance(transform.position + pongOffset, transform.position + cornerOffset) - 
             pongPrefab.transform.GetComponent<BoxCollider>().bounds.size.x * 0.5f - boundsDecrement;
 
+        int auxTeam = 0;
         for (int i = 0; i < pongNumber; i++)
         {
             Pong pong = Instantiate(pongPrefab, transform.position + pongOffset, Quaternion.Euler(new Vector3(0, angle * i))) as Pong;
@@ -72,6 +80,9 @@ public class GameManager : MonoBehaviour
             pong.name = "Pong" + i;
             pong.points = initialPoints;
             pong.bounds = bounds;
+            pong.canShoot = shooter;
+            pong.timeBetweenShots = timeBetweenShots;
+            pong.myTeam = auxTeam;
             hud.players.Add(pong);
             activePlayers.Add(pong);            
 
@@ -98,7 +109,13 @@ public class GameManager : MonoBehaviour
             
             pongOffset = rotation * pongOffset;
             cornerOffset = rotation * cornerOffset;
-		}
+
+            auxTeam++;
+            if (auxTeam > 1)
+            {
+                auxTeam = 0;
+            }
+        }
 
         hud.UpdateScores();
 
@@ -119,7 +136,15 @@ public class GameManager : MonoBehaviour
         ball.pongQuartets = pongNumber/4;
         balls.Add(ball);
     }
-	
+    
+    public void SpawnBullet(Vector3 spawnBPos, Vector3 dirVector, int pTeaam)
+    {
+        Bullet bullet = Instantiate(bulletPrefab, spawnBPos,
+            Quaternion.identity) as Bullet;
+        bullet.Shot(dirVector, pTeaam);
+        bullets.Add(bullet);
+    }
+
     public void Lost(Pong p)
     {
         p.gameObject.SetActive(false);
@@ -142,6 +167,13 @@ public class GameManager : MonoBehaviour
             Destroy(b.gameObject);
         }
         balls.Clear();
+
+        foreach (Bullet bt in bullets)
+        {
+            Destroy(bt.gameObject);
+        }
+        bullets.Clear();
+
         hud.WinnerScreen(p.name);
         audioSource.clip = p.win;
         audioSource.Play();
