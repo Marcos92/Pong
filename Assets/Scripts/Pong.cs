@@ -4,6 +4,7 @@ using System.Collections;
 public class Pong : MonoBehaviour
 {
     public float speed;
+    float initialSpeed;
     internal int direction, directionY;
     public bool controlable = false;
     [HideInInspector]
@@ -56,7 +57,8 @@ public class Pong : MonoBehaviour
 
     void Start()
     {
-        //rigidBody = GetComponent<Rigidbody>();
+        initialSpeed = speed;
+
         aSource = GetComponent<AudioSource>();
 
         animator = transform.GetChild(0).GetComponent<Animator>();
@@ -92,7 +94,9 @@ public class Pong : MonoBehaviour
             if (isMid) directionY = (int)Input.GetAxisRaw("Vertical");
         }
 
-        float velocity = direction * Time.deltaTime * speed;
+        float velocity = 0;
+        if(!dashing) velocity = direction * Time.deltaTime * speed;
+
         if (!isMid)
         {
             if (bot)
@@ -185,9 +189,11 @@ public class Pong : MonoBehaviour
     IEnumerator Strike()
     {
         striking = true;
+        speed = 0f;
         animator.SetBool("striking", striking);
         yield return new WaitForSeconds(strikeDuration);
         striking = false;
+        speed = initialSpeed;
         animator.SetBool("striking", striking);
     }
 

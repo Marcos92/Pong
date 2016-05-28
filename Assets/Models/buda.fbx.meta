@@ -1,0 +1,823 @@
+fileFormatVersion: 2
+guid: ae4182d684ef34042a1d580f16b2ff65
+timeCreated: 1464471937
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: //RootNode
+    100004: "Cabe\xE7a"
+    100006: "Cabe\xE7a_end"
+    100008: Cube
+    100010: Cube.001
+    100012: Cube.002
+    100014: Cube.003
+    100016: Cube.004
+    100018: "Dor\xE7al"
+    100020: "E-Bra\xE7oBaixo"
+    100022: "E-Bra\xE7oBaixo_end"
+    100024: "E-Bra\xE7oCima"
+    100026: E-PernaBaixo
+    100028: E-PernaBaixo.001
+    100030: E-PernaBaixo.001_end
+    100032: E-PernaBaixo_end
+    100034: E-PernaCima
+    100036: Lombar
+    100038: "Pesco\xE7o"
+    100040: "R-Bra\xE7oBaixo"
+    100042: "R-Bra\xE7oBaixo_end"
+    100044: "R-Bra\xE7oCima"
+    100046: R-PernaCima
+    400000: Armature
+    400002: //RootNode
+    400004: "Cabe\xE7a"
+    400006: "Cabe\xE7a_end"
+    400008: Cube
+    400010: Cube.001
+    400012: Cube.002
+    400014: Cube.003
+    400016: Cube.004
+    400018: "Dor\xE7al"
+    400020: "E-Bra\xE7oBaixo"
+    400022: "E-Bra\xE7oBaixo_end"
+    400024: "E-Bra\xE7oCima"
+    400026: E-PernaBaixo
+    400028: E-PernaBaixo.001
+    400030: E-PernaBaixo.001_end
+    400032: E-PernaBaixo_end
+    400034: E-PernaCima
+    400036: Lombar
+    400038: "Pesco\xE7o"
+    400040: "R-Bra\xE7oBaixo"
+    400042: "R-Bra\xE7oBaixo_end"
+    400044: "R-Bra\xE7oCima"
+    400046: R-PernaCima
+    4300000: Cube.004
+    4300002: Cube.003
+    4300004: Cube.001
+    4300006: Cube
+    4300008: Cube.002
+    7400000: Armature|Dash_Left
+    7400002: Armature|Dash_Right
+    7400004: Armature|Idle
+    7400006: Armature|Run_Forward
+    7400008: Armature|Run_Left
+    7400010: Armature|Run_Right
+    7400012: Armature|Strike
+    7400014: Cube.004|Dash_Right
+    7400016: Cube.001|Dash_Left
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Cube.001
+    13700004: Cube.002
+    13700006: Cube.003
+    13700008: Cube.004
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Dash_Left
+      takeName: Armature|Dash_Left
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Dash_Right
+      takeName: Armature|Dash_Right
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 98
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Run_Forward
+      takeName: Armature|Run_Forward
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Run_Left
+      takeName: Armature|Run_Left
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Run_Right
+      takeName: Armature|Run_Right
+      firstFrame: 0
+      lastFrame: 51
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Strike
+      takeName: Armature|Strike
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cube.004|Dash_Right
+      takeName: Cube.004|Dash_Right
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cube.001|Dash_Left
+      takeName: Cube.001|Dash_Left
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Lombar
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/E-Bra\xE7oCima/E-Bra\xE7oBaixo/E-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/Pesco\xE7o/Cabe\xE7a/Cabe\xE7a_end"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo"
+        weight: 1
+      - path: "Armature/Lombar/Dor\xE7al/R-Bra\xE7oCima/R-Bra\xE7oBaixo/R-Bra\xE7oBaixo_end"
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo
+        weight: 1
+      - path: Armature/Lombar/E-PernaCima/E-PernaBaixo/E-PernaBaixo_end
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001
+        weight: 1
+      - path: Armature/Lombar/R-PernaCima/E-PernaBaixo.001/E-PernaBaixo.001_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.004
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
