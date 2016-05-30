@@ -10,6 +10,8 @@ public class AI_Rotating_Tower : MonoBehaviour {
     public float movementSpeed=2;
     Ball ClosestBall;
     bool toBall = false;
+    bool AprouchBall = false;
+    bool BallCaptured = false;
 
     void Start () {
         FindMyNextWayPoint();
@@ -38,34 +40,22 @@ public class AI_Rotating_Tower : MonoBehaviour {
             GoToWayPoint();
         }
 
-       if(toBall)
+       if(toBall && !AprouchBall)
         {
             
-           /// float distance = Vector3.Magnitude( - );
+            // float distance = Vector3.Magnitude( - );
             //float distance = Mathf.Sqrt((ClosestBall.transform.position - transform.position).sqrMagnitude);
-
-            Vector3 dir = ClosestBall.transform.position - transform.position;
-            float length = dir.magnitude;
-            Vector3 heading = ClosestBall.transform.position - transform.position;
-            float distance = Vector3.Distance(ClosestBall.transform.position, transform.position);
-
-
-
-            if (distance <= 1.0f)
-            {
-                ClosestBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                print("entrei!!!");
-            }
-
-            else
-            {
-                GoToBall();
-               
-            }
-            print(distance);
-
-
+            //Vector3 dir = ClosestBall.transform.position - transform.position;
+            //float length = dir.magnitude;
+            //Vector3 heading = ClosestBall.transform.position - transform.position;
+            //float distance = Vector3.Distance(ClosestBall.transform.position, transform.position);
+            GoToBall();
         }
+
+       else if(AprouchBall && !BallCaptured)
+       {
+            ToAprouchBall();
+       }
 	}
 
     void FindMyNextWayPoint()
@@ -109,4 +99,26 @@ public class AI_Rotating_Tower : MonoBehaviour {
         movementSpeed= movementSpeed * 1.05f;
         transform.position = Vector3.MoveTowards(transform.position, ClosestBall.transform.position, movementSpeed);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (toBall && !AprouchBall && ClosestBall.name == other.name)
+        {
+            ClosestBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            AprouchBall = true;
+        }
+    }
+
+    void ToAprouchBall()
+    {
+        if (ClosestBall.transform.position != ((transform.forward * 0.5f) + transform.position))
+        {
+            ClosestBall.transform.position = Vector3.MoveTowards(ClosestBall.transform.position, ((transform.forward * 0.5f) + transform.position), 1);
+        }
+
+        else
+        {
+            print("Done!!!");
+        }
+     }
 }
