@@ -61,10 +61,8 @@ public class Pong : MonoBehaviour
 
         aSource = GetComponent<AudioSource>();
 
-        if (animator)
-        {
-            animator = transform.GetChild(0).GetComponent<Animator>();
-        }
+        animator = transform.GetChild(0).GetComponent<Animator>();
+
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
@@ -164,13 +162,11 @@ public class Pong : MonoBehaviour
             nextPos.x = Mathf.Clamp(transform.localPosition.x, midXMin, midXMax);
             nextPos.z = Mathf.Clamp(transform.localPosition.z, midZmin, midZMax);
             transform.localPosition = nextPos;
-            
         }
 
-        if (animator)
-        {
-            animator.SetInteger("direction", direction);
-        }
+        animator.SetBool("dashing", dashing);
+        animator.SetBool("striking", striking);
+        animator.SetInteger("direction", direction);
 
         ShootTest();
     }
@@ -195,17 +191,9 @@ public class Pong : MonoBehaviour
     {
         striking = true;
         speed = 0f;
-        if (animator)
-        {
-            animator.SetBool("striking", striking);
-        }
         yield return new WaitForSeconds(strikeDuration);
         striking = false;
         speed = initialSpeed;
-        if (animator)
-        {
-            animator.SetBool("striking", striking);
-        }
     }
 
     IEnumerator Dash(float d)
@@ -214,7 +202,6 @@ public class Pong : MonoBehaviour
         float v = d * Time.deltaTime * speed * dashSpeedMultiplier;
 
         dashing = true;
-        animator.SetBool("dashing", dashing);
 
         while (Time.time < endDashTime)
         {
@@ -223,7 +210,7 @@ public class Pong : MonoBehaviour
         }
 
         dashing = false;
-        animator.SetBool("dashing", dashing);
+        
     }
 
     enum BotDirection { DirectionX, DirectionY };

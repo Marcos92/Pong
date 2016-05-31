@@ -4,6 +4,7 @@ using System.Collections;
 public class Ball : MonoBehaviour {
 
 	public float speed = 30;
+    float initialSpeed;
 	Rigidbody rb;
 	SphereCollider sc;
 	int actualDirectionZ, actualDirectionX;
@@ -17,6 +18,8 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        initialSpeed = speed;
+
         rb = GetComponent<Rigidbody>();
         sc = GetComponent<SphereCollider>();
 
@@ -63,16 +66,19 @@ public class Ball : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
     {
-		if (col.gameObject.tag == "Goal") 
-		{
-			//Ignores collision and keeps same direction
-			Physics.IgnoreCollision (sc, col.collider);
-			rb.velocity = dir * speed;
-		}
-		else if (col.gameObject.tag == "Player")
-		{
+        if (col.gameObject.tag == "Goal")
+        {
+            //Ignores collision and keeps same direction
+            Physics.IgnoreCollision(sc, col.collider);
+            rb.velocity = dir * speed;
+        }
+        else if (col.gameObject.tag == "Player")
+        {
             Pong pongHit = col.gameObject.GetComponent<Pong>();
             int pongAngle = (int)col.transform.rotation.eulerAngles.y;
+
+            if (pongHit.striking) speed *= pongHit.strikePower;
+            else speed = initialSpeed;
 
             if (pongAngle == 0)
             {
@@ -189,7 +195,7 @@ public class Ball : MonoBehaviour {
             {
                 if (lastHit != null)
                 {
-                    if(pongHit.team != lastHit.team)
+                    if (pongHit.team != lastHit.team)
                     {
                         gManager.ScoreGoal(pongHit.team, false);
                     }
@@ -200,7 +206,8 @@ public class Ball : MonoBehaviour {
                     Destroy(this.gameObject);
                 }
             }
-		}
+        }
+        else speed = initialSpeed;
 	}
 
 	float hitFactor(float ballPos, float pongPos, float pongSize)

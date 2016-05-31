@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level1 : MonoBehaviour
+public class Quake : MonoBehaviour
 {
     public GameManager gameManager;
     public float timeBetweenQuakes, timeBetweenRocks, shakeDuration;
