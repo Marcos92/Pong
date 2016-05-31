@@ -12,6 +12,8 @@ public class AI_Rotating_Tower : MonoBehaviour {
     bool toBall = false;
     bool AprouchBall = false;
     bool BallCaptured = false;
+    int team1Score = 0;
+    int team2Score = 0;
 
     void Start () {
         FindMyNextWayPoint();
@@ -118,7 +120,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
 
         else
         {
-            print("Done!!!");
+           
         }
      }
 }

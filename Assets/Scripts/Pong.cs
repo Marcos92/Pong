@@ -61,8 +61,10 @@ public class Pong : MonoBehaviour
 
         aSource = GetComponent<AudioSource>();
 
-        animator = transform.GetChild(0).GetComponent<Animator>();
-
+        if (animator)
+        {
+            animator = transform.GetChild(0).GetComponent<Animator>();
+        }
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
@@ -165,7 +167,10 @@ public class Pong : MonoBehaviour
             
         }
 
-        animator.SetInteger("direction", direction);
+        if (animator)
+        {
+            animator.SetInteger("direction", direction);
+        }
 
         ShootTest();
     }
@@ -190,11 +195,17 @@ public class Pong : MonoBehaviour
     {
         striking = true;
         speed = 0f;
-        animator.SetBool("striking", striking);
+        if (animator)
+        {
+            animator.SetBool("striking", striking);
+        }
         yield return new WaitForSeconds(strikeDuration);
         striking = false;
         speed = initialSpeed;
-        animator.SetBool("striking", striking);
+        if (animator)
+        {
+            animator.SetBool("striking", striking);
+        }
     }
 
     IEnumerator Dash(float d)

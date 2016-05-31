@@ -27,4 +27,12 @@ public class Bullet : MonoBehaviour {
         //Marco, chama aqui o que quiseres
         //Nota, usa, o EnemyAIDog como prefab ou então se criares um novo, no inspector desse novo prefab seleciona a layer EnemyAIDog
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<AI_Rotating_Tower>())
+        {
+            print("ok!!");
+        }
+    }
 }
