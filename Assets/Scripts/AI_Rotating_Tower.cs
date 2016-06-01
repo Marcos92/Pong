@@ -14,6 +14,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
     bool BallCaptured = false;
     int team1Score = 0;
     int team2Score = 0;
+    
 
     void Start () {
         FindMyNextWayPoint();
@@ -100,6 +101,16 @@ public class AI_Rotating_Tower : MonoBehaviour {
     {
         movementSpeed= movementSpeed * 1.05f;
         transform.position = Vector3.MoveTowards(transform.position, ClosestBall.transform.position, movementSpeed);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.gameObject.GetComponent<SphereCollider>().center, transform.gameObject.GetComponent<SphereCollider>().radius);
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (ClosestBall.name == hitCollider.name)
+            {
+                ClosestBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                AprouchBall = true;
+               
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -108,6 +119,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
         {
             ClosestBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
             AprouchBall = true;
+            print("entrou");
         }
     }
 
@@ -115,7 +127,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
     {
         if (ClosestBall.transform.position != ((transform.forward * 0.5f) + transform.position))
         {
-            ClosestBall.transform.position = Vector3.MoveTowards(ClosestBall.transform.position, ((transform.forward * 0.5f) + transform.position), 1);
+            ClosestBall.transform.position = Vector3.MoveTowards(ClosestBall.transform.position, ((transform.forward * 1.5f) + transform.position), 1);
         }
 
         else

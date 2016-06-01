@@ -22,11 +22,11 @@ public class Bullet : MonoBehaviour {
         team = t;
     }
 
-    void OnCollisionEnter(Collision col)
-    {
-        //Marco, chama aqui o que quiseres
-        //Nota, usa, o EnemyAIDog como prefab ou então se criares um novo, no inspector desse novo prefab seleciona a layer EnemyAIDog
-    }
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    //Marco, chama aqui o que quiseres
+    //    //Nota, usa, o EnemyAIDog como prefab ou então se criares um novo, no inspector desse novo prefab seleciona a layer EnemyAIDog
+    //}
 
     void OnTriggerEnter(Collider other)
     {

@@ -15,6 +15,7 @@ public class Pong : MonoBehaviour
     public Goal goal;
     //Rigidbody rigidBody;
     Animator animator;
+    public Bullet DebugBulletPrefab;
 
     public int points;
 
@@ -54,15 +55,17 @@ public class Pong : MonoBehaviour
     public float timeBetweenShots;
     private float timeToNextShot;
     public int myTeam;
+    public bool isDebug = false;
 
     void Start()
     {
         initialSpeed = speed;
 
         aSource = GetComponent<AudioSource>();
-
-        animator = transform.GetChild(0).GetComponent<Animator>();
-
+        if (animator)
+        {
+            animator = transform.GetChild(0).GetComponent<Animator>();
+        }
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
@@ -164,10 +167,12 @@ public class Pong : MonoBehaviour
             transform.localPosition = nextPos;
         }
 
-        animator.SetBool("dashing", dashing);
-        animator.SetBool("striking", striking);
-        animator.SetInteger("direction", direction);
-
+        if (animator)
+        {
+            animator.SetBool("dashing", dashing);
+            animator.SetBool("striking", striking);
+            animator.SetInteger("direction", direction);
+        }
         ShootTest();
     }
 
@@ -182,8 +187,17 @@ public class Pong : MonoBehaviour
                 timeToNextShot = timeBetweenShots;
 
                 //SpawnBullet
-                this.transform.parent.gameObject.GetComponent<GameManager>().SpawnBullet(new Vector3(transform.position.x, 1.5f, transform.position.z), Vector3.forward, myTeam);
-            }
+                if (isDebug && DebugBulletPrefab)
+                {
+                    Bullet bullet = Instantiate(DebugBulletPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Bullet;
+                    bullet.Shot(transform.forward, myTeam);
+                }
+
+                else
+                {
+                    this.transform.parent.gameObject.GetComponent<GameManager>().SpawnBullet(new Vector3(transform.position.x, 1.5f, transform.position.z), transform.forward, myTeam);
+                }
+          }
         }
     }
 
