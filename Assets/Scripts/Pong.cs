@@ -62,10 +62,9 @@ public class Pong : MonoBehaviour
         initialSpeed = speed;
 
         aSource = GetComponent<AudioSource>();
-        if (animator)
-        {
-            animator = transform.GetChild(0).GetComponent<Animator>();
-        }
+
+        animator = transform.GetChild(0).GetComponent<Animator>();
+
         Vector3 right = transform.right;
         Vector3 initialPosition = transform.localPosition;
         float aux;
@@ -166,13 +165,11 @@ public class Pong : MonoBehaviour
             nextPos.z = Mathf.Clamp(transform.localPosition.z, midZmin, midZMax);
             transform.localPosition = nextPos;
         }
+        
+        animator.SetBool("dashing", dashing);
+        animator.SetBool("striking", striking);
+        animator.SetInteger("direction", direction);
 
-        if (animator)
-        {
-            animator.SetBool("dashing", dashing);
-            animator.SetBool("striking", striking);
-            animator.SetInteger("direction", direction);
-        }
         ShootTest();
     }
 

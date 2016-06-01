@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     public virtual void SpawnBall()
     {
-        Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), 
+        Ball ball = Instantiate(ballPrefab, new Vector3(transform.position.x, 2.5f, transform.position.z), 
             Quaternion.identity) as Ball;
         ball.pongQuartets = pongNumber/4;
         balls.Add(ball);
