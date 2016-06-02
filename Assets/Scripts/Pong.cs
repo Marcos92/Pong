@@ -186,13 +186,13 @@ public class Pong : MonoBehaviour
                 //SpawnBullet
                 if (isDebug && DebugBulletPrefab)
                 {
-                    Bullet bullet = Instantiate(DebugBulletPrefab, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity) as Bullet;
+                    Bullet bullet = Instantiate(DebugBulletPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Bullet;
                     bullet.Shot(transform.forward, myTeam);
                 }
 
                 else
                 {
-                    this.transform.parent.gameObject.GetComponent<GameManager>().SpawnBullet(new Vector3(transform.position.x, 1.5f, transform.position.z), transform.forward, myTeam);
+                    this.transform.parent.gameObject.GetComponent<GameManager>().SpawnBullet(new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.forward, myTeam);
                 }
           }
         }

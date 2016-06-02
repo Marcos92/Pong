@@ -38,7 +38,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
             }
        }
 
-       else
+        else if(!toBall)
         {
             GoToWayPoint();
         }
@@ -70,6 +70,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
             if(waypoint.WayPointReference == NextWayPoint)
             {
                 Point = waypoint;
+                Debug.Log(Point.transform.position);
             }
         }
     }
@@ -119,7 +120,6 @@ public class AI_Rotating_Tower : MonoBehaviour {
         {
             ClosestBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
             AprouchBall = true;
-            print("entrou");
         }
     }
 
