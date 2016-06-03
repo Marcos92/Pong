@@ -137,7 +137,7 @@ public class AI_Rotating_Tower : MonoBehaviour {
 
     void ToAprouchBall()
     {
-        if (ClosestBall.transform.position != ((transform.forward * 0.5f) + transform.position))
+        if (ClosestBall.transform.position != ((transform.forward * 1.5f) + transform.position))
         {
             ClosestBall.transform.position = Vector3.MoveTowards(ClosestBall.transform.position, ((transform.forward * 1.5f) + transform.position), 1);
         }
@@ -175,15 +175,19 @@ public class AI_Rotating_Tower : MonoBehaviour {
             {
                 ValidPongs.Add(pong);
             }
+        
+        }
+        if (ValidPongs.Count == 0)
+        {
+            ClosestBall.GetComponent<Rigidbody>().velocity = OldBallSpeed;
+            Destroy(gameObject);
         }
 
-       
-        int selectedInRangePlayer = (int)Random.RandomRange(0, ValidPongs.Count-1);
-
+        int selectedInRangePlayer = (int)Random.Range(0, ValidPongs.Count);
         SelectedPlayer = ValidPongs[selectedInRangePlayer];
 
         transform.LookAt(SelectedPlayer.transform.position);
-        ClosestBall.transform.Translate(((transform.forward * 1.5f) + transform.position), ClosestBall.transform.parent);
+        ClosestBall.transform.position=((transform.forward * 1.5f) + transform.position);
         ClosestBall.transform.LookAt(SelectedPlayer.transform.position);
         ClosestBall.GetComponent<Rigidbody>().velocity = OldBallSpeed;
         isBallWay = true;
