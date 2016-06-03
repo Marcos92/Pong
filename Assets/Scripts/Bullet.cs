@@ -9,8 +9,10 @@ public class Bullet : MonoBehaviour {
     Vector3 dir;
     public int team; //0 or 1
     // Use this for initialization
+    bool isHit = false;
+
     void Start () {
-        Debug.Log("BALA:" + transform.position);
+        
     }
 
     public void Shot(Vector3 direction, int t)
@@ -25,17 +27,29 @@ public class Bullet : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("cenas");
+    
         //Marco, chama aqui o que quiseres
         //Nota, usa, o EnemyAIDog como prefab ou então se criares um novo, no inspector desse novo prefab seleciona a layer EnemyAIDog
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("cenas2");
-        if(other.gameObject.GetComponent<AI_Rotating_Tower>())
+        
+        
+        if (other.gameObject.GetComponent<AI_Rotating_Tower>() && !isHit)
         {
-            print("ok!!");
+            if (team == 1)
+            {
+                other.gameObject.GetComponent<AI_Rotating_Tower>().team1Score++;
+            }
+
+            else if(team == 2)
+            {
+                other.gameObject.GetComponent<AI_Rotating_Tower>().team2Score++;
+            }
+
+            isHit = true;
+            print("Team 1: "+ other.gameObject.GetComponent<AI_Rotating_Tower>().team1Score+" Team2: "+ other.gameObject.GetComponent<AI_Rotating_Tower>().team2Score);
         }
     }
 }
