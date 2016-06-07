@@ -7,7 +7,6 @@ public class AI_Rotating_Tower : MonoBehaviour {
     int NextWayPoint = 0;
     public int topWayPoint;
     WayPointRotatingTower Point;
-    // Use this for initialization
     public float movementSpeed=2;
     Ball ClosestBall;
     bool toBall = false;
@@ -18,13 +17,20 @@ public class AI_Rotating_Tower : MonoBehaviour {
     public int team2Score = 0;
     Vector3 OldBallSpeed;
 
-    void Start () {
+    Animator animator;
+
+    void Start ()
+    {
+        animator = transform.FindChild("Model").GetComponent<Animator>();
+
         FindMyNextWayPoint();
-        
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        animator.SetBool("captured", BallCaptured);
+
 	   if(Vector3.Distance(transform.position, Point.transform.position)<=0.5 && !toBall)
        {
             if(NextWayPoint+1>topWayPoint)
@@ -145,7 +151,6 @@ public class AI_Rotating_Tower : MonoBehaviour {
         else
         {
             BallCaptured = true;
-            print("capturada");
         }
      }
 
@@ -191,6 +196,5 @@ public class AI_Rotating_Tower : MonoBehaviour {
         ClosestBall.transform.LookAt(SelectedPlayer.transform.position);
         ClosestBall.GetComponent<Rigidbody>().velocity = OldBallSpeed;
         isBallWay = true;
-        print("Feito");
     }
 }

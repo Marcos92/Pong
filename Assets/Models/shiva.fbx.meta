@@ -1,32 +1,132 @@
 fileFormatVersion: 2
 guid: b51321fc8769d324aa1a35518901c91a
-timeCreated: 1464877147
+timeCreated: 1465339603
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: DrumThing
-    100002: Fork
-    100004: Icosphere
-    100006: Shiva
-    100008: //RootNode
-    400000: DrumThing
-    400002: Fork
-    400004: Icosphere
-    400006: Shiva
-    400008: //RootNode
-    2300000: DrumThing
-    2300002: Fork
-    2300004: Icosphere
-    2300006: Shiva
-    3300000: DrumThing
-    3300002: Fork
-    3300004: Icosphere
-    3300006: Shiva
+    100000: Armature
+    100002: Cloud
+    100004: DrumThing
+    100006: Fork
+    100008: Hand.L.B
+    100010: Hand.L.B_end
+    100012: Hand.L.F
+    100014: Hand.L.F_end
+    100016: Hand.R.B
+    100018: Hand.R.B_end
+    100020: Hand.R.F
+    100022: Hand.R.F_end
+    100024: HandIK.L.B.
+    100026: HandIK.L.B._end
+    100028: HandIK.L.F
+    100030: HandIK.L.F_end
+    100032: HandIK.R.B.
+    100034: HandIK.R.B._end
+    100036: HandIK.R.F.
+    100038: HandIK.R.F._end
+    100040: Head
+    100042: Head_end
+    100044: Icosphere
+    100046: LowerArm.L.B
+    100048: LowerArm.L.F
+    100050: LowerArm.R.B
+    100052: LowerArm.R.F
+    100054: Neck
+    100056: Root
+    100058: Shiva
+    100060: //RootNode
+    100062: Shoulder.L.B
+    100064: Shoulder.L.F
+    100066: Shoulder.R.B
+    100068: Shoulder.R.F
+    100070: Spine.001
+    100072: Spine.002
+    100074: Thumb.L.B
+    100076: Thumb.L.B_end
+    100078: Thumb.L.F
+    100080: Thumb.L.F_end
+    100082: Thumb.R.B
+    100084: Thumb.R.B_end
+    100086: Thumb.R.F
+    100088: Thumb.R.F_end
+    100090: UpperArm.L.B
+    100092: UpperArm.L.F
+    100094: UpperArm.R.B
+    100096: UpperArm.R.F
+    100098: Weapon.L
+    100100: Weapon.L_end
+    100102: Weapon.R
+    100104: Weapon.R_end
+    400000: Armature
+    400002: Cloud
+    400004: DrumThing
+    400006: Fork
+    400008: Hand.L.B
+    400010: Hand.L.B_end
+    400012: Hand.L.F
+    400014: Hand.L.F_end
+    400016: Hand.R.B
+    400018: Hand.R.B_end
+    400020: Hand.R.F
+    400022: Hand.R.F_end
+    400024: HandIK.L.B.
+    400026: HandIK.L.B._end
+    400028: HandIK.L.F
+    400030: HandIK.L.F_end
+    400032: HandIK.R.B.
+    400034: HandIK.R.B._end
+    400036: HandIK.R.F.
+    400038: HandIK.R.F._end
+    400040: Head
+    400042: Head_end
+    400044: Icosphere
+    400046: LowerArm.L.B
+    400048: LowerArm.L.F
+    400050: LowerArm.R.B
+    400052: LowerArm.R.F
+    400054: Neck
+    400056: Root
+    400058: Shiva
+    400060: //RootNode
+    400062: Shoulder.L.B
+    400064: Shoulder.L.F
+    400066: Shoulder.R.B
+    400068: Shoulder.R.F
+    400070: Spine.001
+    400072: Spine.002
+    400074: Thumb.L.B
+    400076: Thumb.L.B_end
+    400078: Thumb.L.F
+    400080: Thumb.L.F_end
+    400082: Thumb.R.B
+    400084: Thumb.R.B_end
+    400086: Thumb.R.F
+    400088: Thumb.R.F_end
+    400090: UpperArm.L.B
+    400092: UpperArm.L.F
+    400094: UpperArm.R.B
+    400096: UpperArm.R.F
+    400098: Weapon.L
+    400100: Weapon.L_end
+    400102: Weapon.R
+    400104: Weapon.R_end
     4300000: Icosphere
     4300002: Shiva
     4300004: DrumThing
     4300006: Fork
+    7400000: Armature|Bash
+    7400002: Armature|Dash.L
+    7400004: Armature|Dash.R
+    7400006: Armature|Hit
+    7400008: Armature|Idle
+    7400010: Armature|Strafe.L
+    7400012: Armature|Strafe.R
+    9500000: //RootNode
+    13700000: DrumThing
+    13700002: Fork
+    13700004: Icosphere
+    13700006: Shiva
   materials:
     importMaterials: 1
     materialName: 0
@@ -47,11 +147,949 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Bash
+      takeName: Armature|Bash
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Dash.L
+      takeName: Armature|Dash.L
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Dash.R
+      takeName: Armature|Dash.R
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Hit
+      takeName: Armature|Hit
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Strafe.L
+      takeName: Armature|Strafe.L
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Strafe.R
+      takeName: Armature|Strafe.R
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Cloud
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.B./HandIK.L.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.L.F/HandIK.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.B./HandIK.R.B._end
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F.
+        weight: 1
+      - path: Armature/Root/Cloud/HandIK.R.F./HandIK.R.F._end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Hand.L.B/Hand.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Thumb.L.B/Thumb.L.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.B/UpperArm.L.B/LowerArm.L.B/Weapon.L/Weapon.L_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Hand.L.F/Hand.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.L.F/UpperArm.L.F/LowerArm.L.F/Thumb.L.F/Thumb.L.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Hand.R.B/Hand.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Thumb.R.B/Thumb.R.B_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.B/UpperArm.R.B/LowerArm.R.B/Weapon.R/Weapon.R_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Hand.R.F/Hand.R.F_end
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F
+        weight: 1
+      - path: Armature/Root/Cloud/Spine.001/Spine.002/Shoulder.R.F/UpperArm.R.F/LowerArm.R.F/Thumb.R.F/Thumb.R.F_end
+        weight: 1
+      - path: DrumThing
+        weight: 1
+      - path: Fork
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Shiva
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 4
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -85,7 +1123,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

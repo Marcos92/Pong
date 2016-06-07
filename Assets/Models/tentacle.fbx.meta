@@ -15,6 +15,8 @@ ModelImporter:
     100014: Bone.007
     100016: Bone.007_end
     100018: //RootNode
+    100020: Armature
+    100022: Cylinder
     400000: Bone
     400002: Bone.001
     400004: Bone.002
@@ -25,8 +27,12 @@ ModelImporter:
     400014: Bone.007
     400016: Bone.007_end
     400018: //RootNode
+    400020: Armature
+    400022: Cylinder
+    4300000: Cylinder
     7400000: Armature|Idle
     9500000: //RootNode
+    13700000: Cylinder
   materials:
     importMaterials: 1
     materialName: 0
@@ -51,7 +57,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
