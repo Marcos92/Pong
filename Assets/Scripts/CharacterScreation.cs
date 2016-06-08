@@ -21,10 +21,9 @@ public class CharacterScreation : MonoBehaviour {
 	private void Update()
 	{
 		if(Input.GetMouseButton(0))
-            transform.RotateAround(Vector3.up,Input.GetAxis("Mouse X"));
-
-
+            models[selectionIndex].transform.RotateAround(Vector3.up,Input.GetAxis("Mouse X"));
 	}
+
 	public void Select(int index)
 	{
 		if (index == selectionIndex)
