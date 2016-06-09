@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level2 (Baseball).unity
+- path: Assets/Level0 (Pong).unity
   isLoaded: 1
   isActive: 1

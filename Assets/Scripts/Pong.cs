@@ -40,9 +40,11 @@ public class Pong : MonoBehaviour
     public float dashSpeedMultiplier = 1.2f;
 
     //[HideInInspector]
-    public AudioClip hitBall, win;
+    public AudioClip win, hitBall, strikeSound,strikeSound2;
     bool playOnce = false;
-    AudioSource aSource;
+    AudioSource aSource, strikeSource, hitBallSource, strikeSource2;
+    int rndStrike = 0;
+    
 
     //Mata
     public bool isMid;
@@ -62,6 +64,13 @@ public class Pong : MonoBehaviour
         initialSpeed = speed;
 
         aSource = GetComponent<AudioSource>();
+        hitBallSource = GetComponent<AudioSource>();
+        strikeSource = GetComponent<AudioSource>();
+        strikeSource2 = GetComponent<AudioSource>();
+        
+        hitBallSource.clip = hitBall;
+
+        
 
         animator = transform.GetChild(0).GetComponent<Animator>();
 
@@ -140,12 +149,30 @@ public class Pong : MonoBehaviour
             if (Input.GetAxisRaw("Horizontal") == 0)
             {
                 //Strike
+
                 StartCoroutine("Strike");
+                strikeSource.clip = strikeSound;
+                strikeSource.Play();
+                
             }
             else
             {
                 //Dash
                 StartCoroutine("Dash", Input.GetAxisRaw("Horizontal"));
+                rndStrike = Random.Range(0, 3);
+
+                if (rndStrike == 1)
+                {
+                    strikeSource.clip = strikeSound;
+                    strikeSource.Play();
+                    Debug.Log("1");
+                }
+                if(rndStrike == 2)
+                {
+                    strikeSource2.clip = strikeSound2;
+                    strikeSource2.Play();
+                    Debug.Log("2");
+                }
             }
         }
         dashCooldown = dashCooldown - Time.deltaTime;
@@ -205,6 +232,7 @@ public class Pong : MonoBehaviour
         yield return new WaitForSeconds(strikeDuration);
         striking = false;
         speed = initialSpeed;
+        
     }
 
     IEnumerator Dash(float d)
