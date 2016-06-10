@@ -108,6 +108,7 @@
     <Compile Include="Assets\Network\Scripts\RotationSync.cs" />
     <Compile Include="Assets\Scripts\AI_Rotating_Tower.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
+    <Compile Include="Assets\Scripts\BounceSound.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\ChangeScene1.cs" />
     <Compile Include="Assets\Scripts\CharacterScreation.cs" />
@@ -126,11 +127,14 @@
     <Compile Include="Assets\Scripts\Team.cs" />
     <Compile Include="Assets\Scripts\TestAI.cs" />
     <Compile Include="Assets\Scripts\WayPointRotatingTower.cs" />
+    <Compile Include="Assets\Shaders\CoreShader\ParticleGenerator.cs" />
+    <Compile Include="Assets\Shaders\CoreShader\SphericalFog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Network\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Quake\lava.shader" />
     <None Include="Assets\Shaders\ArtShader\WaterShader.shader" />
+    <None Include="Assets\Shaders\CoreShader\SphericalFog.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
   </ItemGroup>
