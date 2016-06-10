@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Menu/Opcoes.unity
+- path: Assets/Level5 (Pong8).unity
   isLoaded: 1
   isActive: 1

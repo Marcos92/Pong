@@ -131,6 +131,7 @@
     <None Include="Assets\Network\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Quake\lava.shader" />
     <None Include="Assets\Shaders\ArtShader\WaterShader.shader" />
+    <None Include="Assets\Shaders\CoreShader\SphericalFog.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
   </ItemGroup>
