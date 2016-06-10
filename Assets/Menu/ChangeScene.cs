@@ -13,4 +13,9 @@ public class ChangeScene : MonoBehaviour {
 	{
 		Application.Quit ();
 	}
+
+	public void Graphics(int x)
+	{
+		QualitySettings.SetQualityLevel (x);
+	}
 }
