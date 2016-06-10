@@ -345,12 +345,24 @@ public class Pong : MonoBehaviour
             {
                 if (DistanceRight < DistanceLeft)
                 {
-                    direction = -1;
+                    if (DistanceLeft > DistanceRight && DistanceRight < DistanceNeutral * 0.95 && dashCooldown <= 0)
+                    {
+                        StartCoroutine("Dash", -1);
+                        dashCooldown = 2;
+                    }
+                    else
+                        direction = -1;
                 }
 
                 else
                 {
-                    direction = 1;
+                    if (DistanceLeft < DistanceRight && DistanceLeft < DistanceNeutral * 0.95 && dashCooldown <= 0)
+                    {
+                        StartCoroutine("Dash", 1);
+                        dashCooldown = 2;
+                    }
+                    else
+                        direction = 1;
                 }
 
 
