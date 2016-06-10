@@ -2,8 +2,7 @@
 	Properties{
 		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("Albedo (RGB)", 2D) = "white" {}
-	_Glossiness("Smoothness", Range(0,1)) = 0.5
-		_Metallic("Metallic", Range(0,1)) = 0.0
+
 
 		_Scale("Scale ", float) = 1
 		_Speed("Speed ", float) = 1
@@ -23,15 +22,13 @@
 #pragma target 3.0
 
 		// Variaveis vão dar valores a fequencia com que as cenas vão acontecer.
-		sampler2D _MainTex;
+	sampler2D _MainTex;
 	float _Scale, _Speed, _Frequency;
 
 	struct Input {
 		float2 uv_MainTex;
 	};
 
-	half _Glossiness;
-	half _Metallic;
 	fixed4 _Color;
 
 	// Vai dar forma à superficie:
