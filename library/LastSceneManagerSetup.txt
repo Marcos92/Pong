@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Level2 (Baseball).unity
+=======
+- path: Assets/Menu/Opcoes.unity
+>>>>>>> origin/master
   isLoaded: 1
   isActive: 1
