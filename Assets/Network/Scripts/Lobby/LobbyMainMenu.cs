@@ -29,6 +29,7 @@ namespace Prototype.NetworkLobby
         public void OnClickHost()
         {
             lobbyManager.StartHost();
+            ClickManager.instance.enableLevel = true;
         }
 
         public void OnClickJoin()
@@ -69,6 +70,7 @@ namespace Prototype.NetworkLobby
             lobbyManager.DisplayIsConnecting();
 
             lobbyManager.SetServerInfo("Matchmaker Host", lobbyManager.matchHost);
+            ClickManager.instance.EnableLevelButton();
         }
 
         public void OnClickOpenServerList()

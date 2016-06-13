@@ -21,6 +21,7 @@ namespace Prototype.NetworkLobby
         {
             _instance = this;
             _layout = playerListContentTransform.GetComponent<VerticalLayoutGroup>();
+            //ClickManager.instance.EnableLevelButton();
         }
 
         public void DisplayDirectServerWarning(bool enabled)

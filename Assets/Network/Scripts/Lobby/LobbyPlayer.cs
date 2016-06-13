@@ -28,6 +28,8 @@ namespace Prototype.NetworkLobby
         public int characterIndex;
         public int lobbyIndex;
 
+        public static bool toUpdate = false;
+
         //OnMyName function will be invoked on clients when server change the value of playerName
         [SyncVar(hook = "OnMyName")]
         public string playerName = "";
@@ -48,7 +50,13 @@ namespace Prototype.NetworkLobby
         void Awake()
         {
             CharactersAvatares = CharactersSprites;
-            playerSprite = CharactersAvatares[0];
+            //playerSprite = CharactersAvatares[0];
+        }
+
+        void Update()
+        {
+            if (toUpdate)
+                CmdSetSprite(characterIndex);
         }
 
         public override void OnClientEnterLobby()
@@ -116,7 +124,7 @@ namespace Prototype.NetworkLobby
 
             CheckRemoveButton();
 
-            if (playerSprite == CharactersAvatares[0])
+            if (playerSprite == null)
                 CmdSpriteChange();
 
             ChangeReadyButtonColor(JoinColor);
@@ -207,7 +215,7 @@ namespace Prototype.NetworkLobby
 
         void toCharacter()
         {
-            //if (playerColor == Color.black)
+            //if (playerSpriteZZ == Color.black)
             //    characterIndex = 0;
             //else if (playerColor == Color.blue)
             //    characterIndex = 1;
@@ -236,8 +244,9 @@ namespace Prototype.NetworkLobby
             foreach (NetworkLobbyPlayer player in tmpLobby.lobbySlots)
                 if (player != null)
                     counter++;
-            if(counter!=tmpLobby.maxPlayers)
+            if (counter != tmpLobby.maxPlayers)
                 CmdSpriteChange();
+                //ClickManager.instance.SelectCharacter();
         }
 
         public void OnReadyClicked()
@@ -283,6 +292,25 @@ namespace Prototype.NetworkLobby
         //====== Server Command
 
         [Command]
+        public void CmdSetSprite(int idx)
+        {
+            int inUseIdx = _spriteInUse.IndexOf(idx);
+
+            if (inUseIdx >= 0)
+            {//if we already add an entry in the colorTabs, we change it
+                _spriteInUse[inUseIdx] = idx;
+            }
+            else
+            {//else we add it
+                _spriteInUse.Add(idx);
+            }
+
+            playerSprite = CharactersAvatares[idx];
+
+            characterIndex = idx;
+        }
+
+        [Command]
         public void CmdSpriteChange()
         {
             int idx = System.Array.IndexOf(CharactersAvatares, playerSprite);
@@ -309,6 +337,8 @@ namespace Prototype.NetworkLobby
             }
             while (alreadyInUse);
 
+            //idx--;
+
             if (inUseIdx >= 0)
             {//if we already add an entry in the colorTabs, we change it
                 _spriteInUse[inUseIdx] = idx;
@@ -319,6 +349,9 @@ namespace Prototype.NetworkLobby
             }
 
             playerSprite = CharactersAvatares[idx];
+
+            characterIndex = idx;
+            Debug.Log(idx);
         }
 
         [Command]

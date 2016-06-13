@@ -161,6 +161,7 @@ namespace Prototype.NetworkLobby
         public void GoBackButton()
         {
             backDelegate();
+            ClickManager.instance.enableLevel = false;
         }
 
         // ----------------- Server management

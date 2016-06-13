@@ -7,7 +7,8 @@ public class ClickManager : MonoBehaviour
     public static ClickManager instance;
     public Camera MainCamera, DummyCamera;
     public Canvas MainCanvas, CharacterCanvas, LevelCanvas;
-    public GameObject CharacterSelection, LevelSelection;
+    public GameObject CharacterSelection, LevelSelection, LevelButton;
+    public bool enableLevel;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class ClickManager : MonoBehaviour
         CharacterCanvas.worldCamera = DummyCamera;
         CharacterSelection.SetActive(false);
         MainCanvas.enabled = true;
+        
     }
 
     public void SelectLevel()
@@ -42,5 +44,25 @@ public class ClickManager : MonoBehaviour
         LevelCanvas.worldCamera = DummyCamera;
         LevelSelection.SetActive(false);
         MainCanvas.enabled = true;
+    }
+
+    void Update()
+    {
+        if (enableLevel)
+            EnableLevelButton();
+        else
+            DisableLevelButton();
+    }
+
+    public void DisableLevelButton()
+    {
+        if (LevelButton != null)
+            LevelButton.SetActive(false);
+    }
+
+    public void EnableLevelButton()
+    {
+        if (LevelButton != null)
+            LevelButton.SetActive(true);
     }
 }

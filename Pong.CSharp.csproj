@@ -56,12 +56,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -92,6 +86,7 @@
     <Compile Include="Assets\Menu\ClickSound.cs" />
     <Compile Include="Assets\Menu\controller.cs" />
     <Compile Include="Assets\Network\Scripts\ClickManager.cs" />
+    <Compile Include="Assets\Network\Scripts\DontDestroyMe.cs" />
     <Compile Include="Assets\Network\Scripts\DraggablePanel.cs" />
     <Compile Include="Assets\Network\Scripts\EventSystemChecker.cs" />
     <Compile Include="Assets\Network\Scripts\ExtraNetworkComponentsLoader.cs" />
