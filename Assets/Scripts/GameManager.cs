@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Goal goalPrefab;
 	public Ball ballPrefab;
     public Bullet bulletPrefab;
+    public AI_Rotating_Tower dogAIPrefab;
     public float ballRespawnTime;
     public int maxBalls = 10;
 
@@ -40,8 +41,13 @@ public class GameManager : MonoBehaviour
     //Shots
     public bool shooter = false;
     public float timeBetweenShots = 5.0f;
+    
+    //Dog
+    public bool isDogLevel = false;
+    public float timeBetweenDogs = 30.0f;
+    private float timeToNextDog = 2.0f;
 
-	void Start ()
+    void Start ()
     {
         audioSource = GetComponent<AudioSource>();
         gameTimer = matchDurationMinutes * 60.0f + matchDurationSeconds;
@@ -242,7 +248,19 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             PauseUnpause();
         RemovePlayers();
-        
 
-	}
+
+        if (isDogLevel)
+        {
+            timeToNextDog -= Time.deltaTime;
+
+            if (timeToNextDog <= 0.0f)
+            {
+                timeToNextDog = timeBetweenDogs;
+
+                AI_Rotating_Tower bullet = Instantiate(dogAIPrefab, new Vector3(0.0f, 1.5f, 0.0f),
+                    Quaternion.identity) as AI_Rotating_Tower;
+            }
+        }
+    }
 }
