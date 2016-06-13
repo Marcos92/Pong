@@ -11,9 +11,10 @@ namespace Prototype.NetworkLobby
     //Any LobbyHook can then grab it and pass those value to the game player prefab (see the Pong Example in the Samples Scenes)
     public class LobbyPlayer : NetworkLobbyPlayer
     {
-        static Color[] Colors = new Color[] { Color.black, Color.blue, Color.cyan, Color.green, Color.magenta, Color.red, Color.white, Color.yellow };
+        public Sprite[] CharactersSprites;
+        public static Sprite[] CharactersAvatares;
         //used on server to avoid assigning the same color to two player
-        static List<int> _colorInUse = new List<int>();
+        static List<int> _spriteInUse = new List<int>();
 
         public Button colorButton;
         public InputField nameInput;
@@ -30,8 +31,8 @@ namespace Prototype.NetworkLobby
         //OnMyName function will be invoked on clients when server change the value of playerName
         [SyncVar(hook = "OnMyName")]
         public string playerName = "";
-        [SyncVar(hook = "OnMyColor")]
-        public Color playerColor = Color.gray;
+        [SyncVar(hook = "OnMySprite")]
+        public Sprite playerSprite;
 
         public Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         public Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
@@ -44,6 +45,11 @@ namespace Prototype.NetworkLobby
         //static Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         //static Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
 
+        void Awake()
+        {
+            CharactersAvatares = CharactersSprites;
+            playerSprite = CharactersAvatares[0];
+        }
 
         public override void OnClientEnterLobby()
         {
@@ -66,7 +72,7 @@ namespace Prototype.NetworkLobby
             //setup the player data on UI. The value are SyncVar so the player
             //will be created with the right value currently on server
             OnMyName(playerName);
-            OnMyColor(playerColor);
+            OnMySprite(playerSprite);
         }
 
         public override void OnStartAuthority()
@@ -110,8 +116,8 @@ namespace Prototype.NetworkLobby
 
             CheckRemoveButton();
 
-            if (playerColor == Color.white)
-                CmdColorChange();
+            if (playerSprite == CharactersAvatares[0])
+                CmdSpriteChange();
 
             ChangeReadyButtonColor(JoinColor);
 
@@ -130,7 +136,7 @@ namespace Prototype.NetworkLobby
             nameInput.onEndEdit.AddListener(OnNameChanged);
 
             colorButton.onClick.RemoveAllListeners();
-            colorButton.onClick.AddListener(OnColorClicked);
+            colorButton.onClick.AddListener(OnSpriteClicked);
 
             readyButton.onClick.RemoveAllListeners();
             readyButton.onClick.AddListener(OnReadyClicked);
@@ -192,38 +198,38 @@ namespace Prototype.NetworkLobby
             nameInput.text = playerName;
         }
 
-        public void OnMyColor(Color newColor)
+        public void OnMySprite(Sprite newSprite)
         {
-            playerColor = newColor;
-            colorButton.GetComponent<Image>().color = newColor;
-            toCharacter();
+            playerSprite = newSprite;
+            colorButton.GetComponent<Image>().sprite = newSprite;
+            //toCharacter();
         }
 
         void toCharacter()
         {
-            if (playerColor == Color.black)
-                characterIndex = 0;
-            else if (playerColor == Color.blue)
-                characterIndex = 1;
-            else if (playerColor == Color.cyan)
-                characterIndex = 2;
-            else if (playerColor == Color.green)
-                characterIndex = 3;
-            else if (playerColor == Color.magenta)
-                characterIndex = 4;
-            else if (playerColor == Color.red)
-                characterIndex = 5;
-            else if (playerColor == Color.white)
-                characterIndex = 6;
-            else
-                characterIndex = 7;
+            //if (playerColor == Color.black)
+            //    characterIndex = 0;
+            //else if (playerColor == Color.blue)
+            //    characterIndex = 1;
+            //else if (playerColor == Color.cyan)
+            //    characterIndex = 2;
+            //else if (playerColor == Color.green)
+            //    characterIndex = 3;
+            //else if (playerColor == Color.magenta)
+            //    characterIndex = 4;
+            //else if (playerColor == Color.red)
+            //    characterIndex = 5;
+            //else if (playerColor == Color.white)
+            //    characterIndex = 6;
+            //else
+            //    characterIndex = 7;
         }
 
         //===== UI Handler
 
         //Note that those handler use Command function, as we need to change the value on the server not locally
         //so that all client get the new value throught syncvar
-        public void OnColorClicked()
+        public void OnSpriteClicked()
         {
             NetworkLobbyManager tmpLobby = gameObject.GetComponentInParent<NetworkLobbyManager>();
             int counter = 0;
@@ -231,7 +237,7 @@ namespace Prototype.NetworkLobby
                 if (player != null)
                     counter++;
             if(counter!=tmpLobby.maxPlayers)
-                CmdColorChange();
+                CmdSpriteChange();
         }
 
         public void OnReadyClicked()
@@ -277,27 +283,27 @@ namespace Prototype.NetworkLobby
         //====== Server Command
 
         [Command]
-        public void CmdColorChange()
+        public void CmdSpriteChange()
         {
-            int idx = System.Array.IndexOf(Colors, playerColor);
+            int idx = System.Array.IndexOf(CharactersAvatares, playerSprite);
 
-            int inUseIdx = _colorInUse.IndexOf(idx);
+            int inUseIdx = _spriteInUse.IndexOf(idx);
 
             if (idx < 0) idx = 0;
 
-            idx = (idx + 1) % Colors.Length;
+            idx = (idx + 1) % CharactersAvatares.Length;
 
             bool alreadyInUse = false;
 
             do
             {
                 alreadyInUse = false;
-                for (int i = 0; i < _colorInUse.Count; ++i)
+                for (int i = 0; i < _spriteInUse.Count; ++i)
                 {
-                    if (_colorInUse[i] == idx)
+                    if (_spriteInUse[i] == idx)
                     {//that color is already in use
                         alreadyInUse = true;
-                        idx = (idx + 1) % Colors.Length;
+                        idx = (idx + 1) % CharactersAvatares.Length;
                     }
                 }
             }
@@ -305,14 +311,14 @@ namespace Prototype.NetworkLobby
 
             if (inUseIdx >= 0)
             {//if we already add an entry in the colorTabs, we change it
-                _colorInUse[inUseIdx] = idx;
+                _spriteInUse[inUseIdx] = idx;
             }
             else
             {//else we add it
-                _colorInUse.Add(idx);
+                _spriteInUse.Add(idx);
             }
 
-            playerColor = Colors[idx];
+            playerSprite = CharactersAvatares[idx];
         }
 
         [Command]
@@ -327,16 +333,16 @@ namespace Prototype.NetworkLobby
             LobbyPlayerList._instance.RemovePlayer(this);
             if (LobbyManager.s_Singleton != null) LobbyManager.s_Singleton.OnPlayersNumberModified(-1);
 
-            int idx = System.Array.IndexOf(Colors, playerColor);
+            int idx = System.Array.IndexOf(CharactersAvatares, playerSprite);
 
             if (idx < 0)
                 return;
 
-            for (int i = 0; i < _colorInUse.Count; ++i)
+            for (int i = 0; i < _spriteInUse.Count; ++i)
             {
-                if (_colorInUse[i] == idx)
+                if (_spriteInUse[i] == idx)
                 {//that color is already in use
-                    _colorInUse.RemoveAt(i);
+                    _spriteInUse.RemoveAt(i);
                     break;
                 }
             }
