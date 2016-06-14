@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level4 (DogLevel).unity
+- path: Assets/Level3 (Mata).unity
   isLoaded: 1
   isActive: 1

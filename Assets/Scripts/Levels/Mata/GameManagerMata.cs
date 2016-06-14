@@ -11,6 +11,8 @@ public class GameManagerMata : GameManager
     private float timer = 0.0f;
     private Vector3 centerPosition = new Vector3(0.0f, 1.5f, 0.0f);
     public List<Team> teams;
+    public GameObject boulder;
+
     protected override void OnStart()
     {
         teams = new List<Team>();
@@ -36,6 +38,12 @@ public class GameManagerMata : GameManager
             p.team = n / 2;
             teams[n / 2].members.Add(p);
             n++;
+        }
+
+        foreach (Goal g in goals)
+        {
+            g.boulder = boulder;
+            g.transform.position += g.transform.forward;
         }
         hud.UpdateScoresTeams(teams);
         Invoke("PlaceFirstMid", 0.1f);

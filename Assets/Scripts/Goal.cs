@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour {
     AudioSource aSource;
     public AudioClip goalClip;
     private bool isActive = true;
+    public GameObject boulder;
 
 	void Start () {
 	    aSource = GetComponent<AudioSource>();
@@ -43,6 +44,14 @@ public class Goal : MonoBehaviour {
         cube.transform.rotation = transform.rotation;
         cube.transform.position = transform.position;
         cube.transform.localScale = GetComponent<BoxCollider>().size;
+
+        if(gameM is GameManagerMata)
+        {
+            GameObject rock = GameObject.Instantiate(boulder);
+            rock.transform.SetParent(this.gameObject.transform);
+            rock.transform.rotation = transform.rotation;
+            rock.transform.position = transform.position;
+        }
     }
 
     public void ReOpen()
@@ -50,6 +59,10 @@ public class Goal : MonoBehaviour {
         isActive = true;
         if(transform.childCount > 0)
         {
+            if (gameM is GameManagerMata)
+            {
+                Destroy(transform.GetChild(1).gameObject);
+            }
             Destroy(transform.GetChild(0).gameObject);
         }
     }
