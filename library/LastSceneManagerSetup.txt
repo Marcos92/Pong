@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level0 (Pong) Network.unity
+- path: Assets/Menu/MenuInicial.unity
   isLoaded: 1
   isActive: 1
