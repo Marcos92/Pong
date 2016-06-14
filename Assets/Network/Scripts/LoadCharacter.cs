@@ -7,7 +7,6 @@ public class LoadCharacter : NetworkBehaviour
     bool attached = false;
     string childName;
 
-
     void Start()
     {
         NetworkLobbyInfo infoTmp = gameObject.GetComponent<NetworkLobbyInfo>();

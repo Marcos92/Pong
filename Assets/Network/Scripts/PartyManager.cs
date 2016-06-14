@@ -17,7 +17,7 @@ public class PartyManager : NetworkBehaviour
 
     void Start()
     {
-        Party = new PartyMember[GameObject.Find("NetworkGameManager").GetComponent<NetworkGameManager>().pongNumber];
+        //Party = new PartyMember[GameObject.Find("NetworkGameManager").GetComponent<NetworkGameManager>().pongNumber];
     }
 
     //[Command]
